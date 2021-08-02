@@ -1663,6 +1663,7 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
         else sized = resize_image(im, net.w, net.h);
         save_image(sized,"sized");
 
+        printf("\n net.n %d \n",net.n);
         layer l = net.layers[net.n - 1];
         int k;
         for (k = 0; k < net.n; ++k) {
@@ -1681,7 +1682,12 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
 
         //time= what_time_is_it_now();
         double time = get_time_point();
+        // print_network(net);
+
         network_predict(net, X);
+        //打印一下net
+        //print_network(net);
+
         //network_predict_image(&net, im); letterbox = 1;
         printf("%s: Predicted in %lf milli-seconds.\n", input, ((double)get_time_point() - time) / 1000);
         //printf("%s: Predicted in %f seconds.\n", input, (what_time_is_it_now()-time));
