@@ -276,17 +276,16 @@ void forward_network(network net, network_state state)
         if(l.delta && state.train && l.train){
             scal_cpu(l.outputs * l.batch, 0, l.delta, 1);
         }
-        //double time = get_time_point();
+        double time = get_time_point();
         l.forward(l, state);
-        //printf("%d - Predicted in %lf milli-seconds.\n", i, ((double)get_time_point() - time) / 1000);
+        printf("%d - Predicted in %lf milli-seconds.\n", i, ((double)get_time_point() - time) / 1000);
         state.input = l.output;
 
         
         float avg_val = 0;
         int k;
         for (k = 0; k < l.outputs; ++k) avg_val += l.output[k];
-        printf(" i: %d - avg_val = %f \n", i, avg_val / l.outputs);
-        
+        printf(" i: %d - avg_val = %f outputs: %d \n ", i, avg_val / l.outputs,l.outputs);
         
     }
 }

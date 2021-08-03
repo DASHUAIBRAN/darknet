@@ -1661,9 +1661,9 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
         image sized;
         if(letter_box) sized = letterbox_image(im, net.w, net.h);
         else sized = resize_image(im, net.w, net.h);
-        save_image(sized,"sized");
+        //save_image(sized,"sized");
 
-        printf("\n net.n %d \n",net.n);
+        //printf("\n net.n %d \n",net.n);
         layer l = net.layers[net.n - 1];
         int k;
         for (k = 0; k < net.n; ++k) {

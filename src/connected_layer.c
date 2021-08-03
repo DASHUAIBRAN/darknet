@@ -174,6 +174,7 @@ void update_connected_layer(connected_layer l, int batch, float learning_rate, f
 
 void forward_connected_layer(connected_layer l, network_state state)
 {
+   
     int i;
     fill_cpu(l.outputs*l.batch, 0, l.output, 1);
     int m = l.batch;
@@ -182,6 +183,7 @@ void forward_connected_layer(connected_layer l, network_state state)
     float *a = state.input;
     float *b = l.weights;
     float *c = l.output;
+    printf("\n cpu forward \n");
     gemm(0,1,m,n,k,1,a,k,b,k,1,c,n);
     if(l.batch_normalize){
         if(state.train){
