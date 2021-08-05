@@ -201,7 +201,7 @@ convolutional_layer parse_convolutional(list *options, size_params params)
     else if(share_index != -1000000000) share_layer = &params.net.layers[params.index + share_index];
 
     int batch,h,w,c;
-    h = params.h;
+    h = params.h; 
     w = params.w;
     c = params.c;
     batch=params.batch;

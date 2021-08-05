@@ -1213,9 +1213,16 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     int out_w = convolutional_out_width(l);
     int i, j;
 
-    fill_cpu(l.outputs*l.batch, 0, l.output, 1);
+    fill_cpu(l.outputs*l.batch, 0, l.output, 1); // 先填充为0 
+
+    printf("\n forward_convolutional_layer l.xnor：%d l.align_bit_weights:%s state.train:%d  \n"
+        ,l.xnor
+        ,l.align_bit_weights
+        ,state.train
+    );
 
     if (l.xnor && (!l.align_bit_weights || state.train)) {
+        printf("here flag l.xnor && (!l.align_bit_weights || state.train)");
         if (!l.align_bit_weights || state.train) {
             binarize_weights(l.weights, l.n, l.nweights, l.binary_weights);
             //printf("\n binarize_weights l.align_bit_weights = %p \n", l.align_bit_weights);
@@ -1228,7 +1235,9 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     int m = l.n / l.groups;
     int k = l.size*l.size*l.c / l.groups;
     int n = out_h*out_w;
-
+    printf(
+        "\n l.n:%d l.groups:%d l.size:%d l.c:%d m:%d k:%d l.batch:%d l.bit_align:%d l.stride:%d l.dilation:%d\n"
+    ,l.n,l.groups,l.size,l.c,m,k,l.batch,l.bit_align,l.stride,l.dilation);
     static int u = 0;
     u++;
 
@@ -1244,6 +1253,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
             //gemm_nn_custom(m, n, k, 1, a, k, b, n, c, n);
             if (l.xnor && l.align_bit_weights && !state.train && l.stride_x == l.stride_y)
             {
+                printf("flag l.xnor && l.align_bit_weights && !state.train && l.stride_x == l.stride_y");
                 memset(b, 0, l.bit_align*l.size*l.size*l.c * sizeof(float));
 
                 if (l.c % 32 == 0)
@@ -1366,7 +1376,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
 
             }
             else {
-                //printf(" l.index = %d - FP32 \n", l.index);
+                printf(" l.index = %d - FP32 \n", l.index);
                 float *im = state.input + (i*l.groups + j)*(l.c / l.groups)*l.h*l.w;
                 if (l.size == 1 && l.stride == 1 && l.dilation == 1) {
                     b = im;
