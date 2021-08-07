@@ -82,8 +82,10 @@ void shortcut_multilayer_cpu(int size, int src_outputs, int batch, int n, int *o
     int step = 0;
     if (nweights > 0) step = src_outputs / layer_step; // (l.c * l.h * l.w) or (l.w*l.h) or 1
 
+
     int id;
     #pragma omp parallel for
+    
     for (id = 0; id < size; ++id) {
 
         int src_id = id;
@@ -94,6 +96,7 @@ void shortcut_multilayer_cpu(int size, int src_outputs, int batch, int n, int *o
         float sum = 1, max_val = -FLT_MAX;
         int i;
         if (weights && weights_normalization) {
+            
             if (weights_normalization == SOFTMAX_NORMALIZATION) {
                 for (i = 0; i < (n + 1); ++i) {
                     const int weights_index = src_i / step + i*layer_step;  // [0 or c or (c, h ,w)]
@@ -112,6 +115,7 @@ void shortcut_multilayer_cpu(int size, int src_outputs, int batch, int n, int *o
         }
 
         if (weights) {
+            printf("\n weights \n");
             float w = weights[src_i / step];
             if (weights_normalization == RELU_NORMALIZATION) w = relu(w) / sum;
             else if (weights_normalization == SOFTMAX_NORMALIZATION) w = expf(w - max_val) / sum;

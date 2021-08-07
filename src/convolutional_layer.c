@@ -1397,6 +1397,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
 
                 gemm(0, 0, m, n, k, 1, a, k, b, n, 1, c, n);
                 // bit-count to float
+                if(l.index==2) exit(0);
             }
             //c += n*m;
             //state.input += l.c*l.h*l.w;

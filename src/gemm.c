@@ -2165,7 +2165,7 @@ void gemm_nn(int M, int N, int K, float ALPHA,
              float *C, int ldc)
 {
     int i, j, k, ti;
-    //printf("\nM:%d N:%d K:%d ALPHA:%lf lda:%d ldb:%d ldc:%d\n", M, N, K, ALPHA, lda, ldb, ldc);
+    printf("\nM:%d N:%d K:%d ALPHA:%lf lda:%d ldb:%d ldc:%d\n", M, N, K, ALPHA, lda, ldb, ldc);
     for (i = 0; i < M; ++i)
     {
         for (k = 0; k < K; ++k)
@@ -2915,6 +2915,7 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
             if (!TA && !TB)
             {
                 gemm_nn(1, N, K, ALPHA, A + t * lda, lda, B, ldb, C + t * ldc, ldc);
+                
             }
             else if (TA && !TB)
             {
