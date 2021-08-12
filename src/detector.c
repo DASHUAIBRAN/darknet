@@ -1658,6 +1658,14 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
         //image im;
         //image sized = load_image_resize(input, net.w, net.h, net.c, &im);
         image im = load_image(input, 0, 0, net.c);
+        float *input_im = im.data;
+        int i;
+        for (i = 0; i < 10; i++)
+        {
+            /* code */
+             printf("\n load_image i:%d X[i]:%lf \n",i,input_im[i]);
+        }
+        
         image sized;
         if(letter_box) sized = letterbox_image(im, net.w, net.h);
         else sized = resize_image(im, net.w, net.h);
@@ -1679,7 +1687,13 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
         //for(j = 0; j < l.w*l.h*l.n; ++j) probs[j] = (float*)xcalloc(l.classes, sizeof(float));
 
         float *X = sized.data;
-
+       
+        for (i = 0; i < 10; i++)
+        {
+            /* code */
+            printf("\n *X i:%d X[i]:%lf \n",i,X[i]);
+        }
+        
         //time= what_time_is_it_now();
         double time = get_time_point();
         // print_network(net);

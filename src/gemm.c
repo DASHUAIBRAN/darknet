@@ -2159,6 +2159,9 @@ int is_fma_avx2()
     return 0;
 }
 
+// a^2 + 2ab + b^2 + c^2 +2cd + d^2 = (a+b)^2 +(c+d)^2
+// ab+ cd = {(a+b)^2 +(c+d)^2 - (a^2 +b^2 + c^2 +d^2)} /2
+// 
 void gemm_nn(int M, int N, int K, float ALPHA,
              float *A, int lda,
              float *B, int ldb,
@@ -2174,8 +2177,11 @@ void gemm_nn(int M, int N, int K, float ALPHA,
             for (j = 0; j < N; ++j)
             {
                 C[i * ldc + j] += A_PART * B[k * ldb + j];
+                if(j<3)
+                    printf("\n k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f",k,j,ALPHA, A[i * lda + k],B[k * ldb + j]);
             }
         }
+        exit(0);
     }
 }
 
