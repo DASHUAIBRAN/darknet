@@ -1394,10 +1394,19 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
                         b);                 // output
 
                 }
-
+                int i;
+                int len = l.size* l.size*l.c / l.groups;
+                for (i = 0; i <len; i++)
+                {
+                    /* code */
+                    image imm = float_to_image(l.w,l.h,1,b + 416*416*i);
+                    char buff[256];
+                    sprintf(buff,"imm_%d_%d",l.index,i);
+                    save_image(imm,buff);
+                    printf("\n imm_%d save ok",i);
+                }
                 gemm(0, 0, m, n, k, 1, a, k, b, n, 1, c, n);
                 // bit-count to float
-                if(l.index==2) exit(0);
             }
             //c += n*m;
             //state.input += l.c*l.h*l.w;
