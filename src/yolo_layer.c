@@ -684,10 +684,11 @@ void forward_yolo_layer(const layer l, network_state state)
     }
 #endif
 
+    printf("\n yolo here xxxxxxxxxxxxxxxxxxxxx\n");
     // delta is zeroed
     memset(l.delta, 0, l.outputs * l.batch * sizeof(float));
     if (!state.train) return;
-
+    printf("\n yolo here return? xxxxxxxxxxxxxxxxxxxxx\n");
     int i;
     for (i = 0; i < l.batch * l.w*l.h*l.n; ++i) l.labels[i] = -1;
     for (i = 0; i < l.batch * l.w*l.h*l.n; ++i) l.class_ids[i] = -1;

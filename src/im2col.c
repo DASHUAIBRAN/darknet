@@ -63,8 +63,8 @@ void im2col_cpu_ext(const float* data_im, const int channels,
     const int output_w = (width + 2 * pad_w -
         (dilation_w * (kernel_w - 1) + 1)) / stride_w + 1;
     const int channel_size = height * width;
-    printf("\n output_h:%d output_w:%d channel_size:%d \n",output_h,output_w,channel_size);
-    exit(0);
+    // printf("\n output_h:%d output_w:%d channel_size:%d \n",output_h,output_w,channel_size);
+    // exit(0);
     int channel, kernel_row, kernel_col, output_rows, output_col;
     for (channel = channels; channel--; data_im += channel_size) {
         for (kernel_row = 0; kernel_row < kernel_h; kernel_row++) {
@@ -73,18 +73,18 @@ void im2col_cpu_ext(const float* data_im, const int channels,
                 for (output_rows = output_h; output_rows; output_rows--) {
                     if (!is_a_ge_zero_and_a_lt_b(input_row, height)) {
                         for (output_col = output_w; output_col; output_col--) {
-                            printf("\n first channel:%d channels:%d kernel_h:%d kernel_row:%d kernel_w:%d kernel_col:%d output_h:%d output_rows:%d output_col:%d \n",
-                            channel,channels,kernel_h,kernel_row,kernel_w,kernel_col,output_h,output_rows,output_col);
-                            printf("\n pad_h:%d kernel_row:%d dilation_h:%d height:%d ",pad_h,kernel_row,dilation_h,height);
+                            // printf("\n first channel:%d channels:%d kernel_h:%d kernel_row:%d kernel_w:%d kernel_col:%d output_h:%d output_rows:%d output_col:%d \n",
+                            // channel,channels,kernel_h,kernel_row,kernel_w,kernel_col,output_h,output_rows,output_col);
+                            // printf("\n pad_h:%d kernel_row:%d dilation_h:%d height:%d ",pad_h,kernel_row,dilation_h,height);
                             *(data_col++) = 0;
                         }
                     }
                     else {
                         int input_col = -pad_w + kernel_col * dilation_w;
                         for (output_col = output_w; output_col; output_col--) {
-                             printf("\n second channel:%d channels:%d kernel_h:%d kernel_row:%d kernel_w:%d kernel_col:%d output_h:%d output_rows:%d output_col:%d",
-                            channel,channels,kernel_h,kernel_row,kernel_w,kernel_col,output_h,output_rows,output_col);
-                             printf("\n pad_w:%d kernel_col:%d dilation_w:%d width:%d ",pad_w,kernel_col,dilation_w,width);
+                            //  printf("\n second channel:%d channels:%d kernel_h:%d kernel_row:%d kernel_w:%d kernel_col:%d output_h:%d output_rows:%d output_col:%d",
+                            // channel,channels,kernel_h,kernel_row,kernel_w,kernel_col,output_h,output_rows,output_col);
+                            //  printf("\n pad_w:%d kernel_col:%d dilation_w:%d width:%d ",pad_w,kernel_col,dilation_w,width);
                             if (is_a_ge_zero_and_a_lt_b(input_col, width)) {
                                 *(data_col++) = data_im[input_row * width + input_col];
                             }
