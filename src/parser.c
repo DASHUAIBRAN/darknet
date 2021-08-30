@@ -2182,9 +2182,17 @@ void load_convolutional_weights(layer l, FILE *fp)
     int num = l.nweights;
     int read_bytes;
     read_bytes = fread(l.biases, sizeof(float), l.n, fp);
+    printf("l.n %d \n",l.n);
+    int i;
+    for (i = 0; i < l.n; i++)
+    {
+        /* code */
+        printf("\n %d %lf hhhh",i,l.biases[i]);
+    }
     if (read_bytes > 0 && read_bytes < l.n) printf("\n Warning: Unexpected end of wights-file! l.biases - l.index = %d \n", l.index);
     //fread(l.weights, sizeof(float), num, fp); // as in connected layer
     if (l.batch_normalize && (!l.dontloadscales)){
+        printf("\n to here");
         read_bytes = fread(l.scales, sizeof(float), l.n, fp);
         if (read_bytes > 0 && read_bytes < l.n) printf("\n Warning: Unexpected end of wights-file! l.scales - l.index = %d \n", l.index);
         read_bytes = fread(l.rolling_mean, sizeof(float), l.n, fp);
@@ -2208,6 +2216,15 @@ void load_convolutional_weights(layer l, FILE *fp)
         }
     }
     read_bytes = fread(l.weights, sizeof(float), num, fp);
+    printf("\n number %d \n",num);
+  
+    for (i = 0; i < 10; i++)
+    {
+        /* code */
+        printf("\n %d %lf hhhh",i,l.weights[i]);
+    }
+    
+    exit(0);
     if (read_bytes > 0 && read_bytes < l.n) printf("\n Warning: Unexpected end of wights-file! l.weights - l.index = %d \n", l.index);
     //if(l.adam){
     //    fread(l.m, sizeof(float), num, fp);
@@ -2280,6 +2297,7 @@ void load_weights_upto(network *net, char *filename, int cutoff)
     fread(&major, sizeof(int), 1, fp);
     fread(&minor, sizeof(int), 1, fp);
     fread(&revision, sizeof(int), 1, fp);
+    printf("\n xxxxxxxxxxxxxx major %d minor %d revision %d xxxxxxxxxx\n",major,minor,revision);
     if ((major * 10 + minor) >= 2) {
         printf("\n seen 64");
         uint64_t iseen = 0;

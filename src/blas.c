@@ -75,7 +75,9 @@ static float relu(float src) {
 }
 
 //shortcut 主要计算方法
-void shortcut_multilayer_cpu(int size, int src_outputs, int batch, int n, int *outputs_of_layers, float **layers_output, float *out, float *in, float *weights, int nweights, WEIGHTS_NORMALIZATION_T weights_normalization)
+void shortcut_multilayer_cpu(int size, int src_outputs, int batch, int n
+, int *outputs_of_layers, float **layers_output
+, float *out, float *in, float *weights, int nweights, WEIGHTS_NORMALIZATION_T weights_normalization)
 {
     // nweights - l.n or l.n*l.c or (l.n*l.c*l.h*l.w)
     const int layer_step = nweights / (n + 1);    // 1 or l.c or (l.c * l.h * l.w)
