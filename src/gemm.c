@@ -2168,7 +2168,7 @@ void gemm_nn(int M, int N, int K, float ALPHA,
              float *C, int ldc)
 {
     int i, j, k, ti;
-    // printf("\nM:%d N:%d K:%d ALPHA:%lf lda:%d ldb:%d ldc:%d\n", M, N, K, ALPHA, lda, ldb, ldc);
+    printf("\nM:%d N:%d K:%d ALPHA:%lf lda:%d ldb:%d ldc:%d\n", M, N, K, ALPHA, lda, ldb, ldc);
     for (i = 0; i < M; ++i)
     {
         for (k = 0; k < K; ++k)
@@ -2177,11 +2177,11 @@ void gemm_nn(int M, int N, int K, float ALPHA,
             for (j = 0; j < N; ++j)
             {
                 C[i * ldc + j] += A_PART * B[k * ldb + j];
-                // if(j<3)
-                //     printf("\n k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f",k,j,ALPHA, A[i * lda + k],B[k * ldb + j]);
+                if(j<3)
+                    printf("\n k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f",k,j,ALPHA, A[i * lda + k],B[k * ldb + j]);
             }
         }
-        // exit(0);
+        exit(0);
     }
 }
 

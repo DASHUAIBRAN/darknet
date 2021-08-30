@@ -2217,6 +2217,13 @@ void load_convolutional_weights(layer l, FILE *fp)
     if (l.flipped) {
         transpose_matrix(l.weights, (l.c/l.groups)*l.size*l.size, l.n);
     }
+    // int aa;
+    // for (aa = 0; aa < 100; aa++)
+    // {
+    //     /* code */
+    //     printf("load %d l.weights:%lf \n",aa,l.weights[aa]);
+    // }
+    // exit(0);
     //if (l.binary) binarize_weights(l.weights, l.n, (l.c/l.groups)*l.size*l.size, l.weights);
 #ifdef GPU
     if(gpu_index >= 0){

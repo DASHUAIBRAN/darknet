@@ -1377,10 +1377,18 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     {
         for (j = 0; j < l.groups; ++j)
         {
+            int aa;
+            for (int aa =0; aa <100; aa++)
+            {
+                /* code */
+                printf("weight:%lf \n",l.weights[aa]);
+            }
+            
             float *a = l.weights + j * l.nweights / l.groups;
             float *b = state.workspace;
             float *c = l.output + (i * l.groups + j) * n * m;
-
+            printf("\n l.weights %lf l.nweights %d l.groups %d j %d \n",l.weights,l.nweights,l.groups,j);
+            //exit(0);
             //gemm(0,0,m,n,k,1,a,k,b,n,1,c,n);
             //gemm_nn_custom(m, n, k, 1, a, k, b, n, c, n);
             if (l.xnor && l.align_bit_weights && !state.train && l.stride_x == l.stride_y)
@@ -1521,7 +1529,8 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
                 else
                 {
                     //im2col_cpu(im, l.c / l.groups, l.h, l.w, l.size, l.stride, l.pad, b);
-
+                    // image imm = float_to_image(l.w,l.h,1,im);
+                    // print_image(imm);
                     im2col_cpu_ext(im,                                     // input
                                    l.c / l.groups,                         // input channels
                                    l.h, l.w,                               // input size (h, w)
@@ -1542,6 +1551,19 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
                 //     save_image(imm,buff);
                 //     printf("\n imm_%d save ok",i);
                 // }
+                // printf("???");
+                // for (i = 0; i < 416*416*27; i++)
+                // {
+                //     printf("aaaaa");
+                //     /* code */
+                //     int r = i % (27*416);
+                //     if(r==0)
+                //     {
+                //         printf('\n here r:%lf \n',b[i]);
+                //     }
+                // }
+                // exit(0);
+                
                 gemm(0, 0, m, n, k, 1, a, k, b, n, 1, c, n);
                 // bit-count to float
             }
@@ -1755,6 +1777,7 @@ void backward_convolutional_layer(convolutional_layer l, network_state state)
 
             float *im = state.input + (i * l.groups + j) * (l.c / l.groups) * l.h * l.w;
 
+           
             //im2col_cpu(im, l.c / l.groups, l.h, l.w, l.size, l.stride, l.pad, b);
             im2col_cpu_ext(
                 im,                                     // input
