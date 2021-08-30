@@ -637,6 +637,7 @@ convolutional_layer make_convolutional_layer(int batch, int steps, int h, int w,
         for (i = 0; i < l.nweights; ++i)
             l.weights[i] = scale * rand_uniform(-1, 1); // rand_normal();
     }
+
     int out_h = convolutional_out_height(l);
     int out_w = convolutional_out_width(l);
     l.out_h = out_h;
@@ -951,7 +952,13 @@ convolutional_layer make_convolutional_layer(int batch, int steps, int h, int w,
         }
 #endif // GPU
     }
-
+    int aa;
+    for (aa = 0; aa < 10; aa++)
+    {
+        /* code */
+        printf("here l.weights[%d] = %lf \n", aa, l.weights[aa]);
+    }
+    //exit(0);
     return l;
 }
 
@@ -1341,19 +1348,21 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     int out_h = convolutional_out_height(l);
     int out_w = convolutional_out_width(l);
     int i, j;
-    
+
     // for (i = 0; i < 100; i++)
     // {
     //     /* code */
     //     printf("\n inside state.input %d %lf",i,state.input[i]);
     // }
-    
+
+
+
     fill_cpu(l.outputs * l.batch, 0, l.output, 1); // 先填充为0
 
     // printf("\n forward_convolutional_layer l.xnor：%d l.align_bit_weights:%s state.train:%d  \n", l.xnor, l.align_bit_weights, state.train);
 
     if (l.xnor && (!l.align_bit_weights || state.train))
-    { 
+    {
         // 没到这里
         printf("here flag l.xnor && (!l.align_bit_weights || state.train)");
         if (!l.align_bit_weights || state.train)
@@ -1378,16 +1387,16 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
         for (j = 0; j < l.groups; ++j)
         {
             int aa;
-            for (int aa =0; aa <100; aa++)
+            for (int aa = 0; aa < 10; aa++)
             {
                 /* code */
-                printf("weight:%lf \n",l.weights[aa]);
+                printf("weight[%d]:%lf \n",aa, l.weights[aa]);
             }
-            
+            exit(0);
             float *a = l.weights + j * l.nweights / l.groups;
             float *b = state.workspace;
             float *c = l.output + (i * l.groups + j) * n * m;
-            printf("\n l.weights %lf l.nweights %d l.groups %d j %d \n",l.weights,l.nweights,l.groups,j);
+            printf("\n l.weights %lf l.nweights %d l.groups %d j %d \n", l.weights, l.nweights, l.groups, j);
             //exit(0);
             //gemm(0,0,m,n,k,1,a,k,b,n,1,c,n);
             //gemm_nn_custom(m, n, k, 1, a, k, b, n, c, n);
@@ -1541,7 +1550,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
                                    b);                                     // output
                 }
                 int i;
-                int len = l.size* l.size*l.c / l.groups;
+                int len = l.size * l.size * l.c / l.groups;
                 // for (i = 0; i <len; i++)
                 // {
                 //     /* code */
@@ -1563,7 +1572,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
                 //     }
                 // }
                 // exit(0);
-                
+
                 gemm(0, 0, m, n, k, 1, a, k, b, n, 1, c, n);
                 // bit-count to float
             }
@@ -1777,7 +1786,6 @@ void backward_convolutional_layer(convolutional_layer l, network_state state)
 
             float *im = state.input + (i * l.groups + j) * (l.c / l.groups) * l.h * l.w;
 
-           
             //im2col_cpu(im, l.c / l.groups, l.h, l.w, l.size, l.stride, l.pad, b);
             im2col_cpu_ext(
                 im,                                     // input

@@ -1619,8 +1619,25 @@ void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filenam
     }
     if (net.letter_box) letter_box = 1;
     net.benchmark_layers = benchmark_layers;
+    int aa;
+            for (int aa = 0; aa < 10; aa++)
+            {
+                /* code */
+                printf("aaweight[%d]:%lf \n",aa, net.layers[0].weights[aa]);
+            }
+
     fuse_conv_batchnorm(net);
+       for (int aa = 0; aa < 10; aa++)
+            {
+                /* code */
+                printf("ccweight[%d]:%lf \n",aa, net.layers[0].weights[aa]);
+            }
     calculate_binary_weights(net);
+                for (int aa = 0; aa < 10; aa++)
+            {
+                /* code */
+                printf("bbweight[%d]:%lf \n",aa, net.layers[0].weights[aa]);
+            }
     if (net.layers[net.n - 1].classes != names_size) {
         printf("\n Error: in the file %s number of names %d that isn't equal to classes=%d in the file %s \n",
             name_list, names_size, net.layers[net.n - 1].classes, cfgfile);

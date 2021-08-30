@@ -1288,6 +1288,8 @@ void fuse_conv_batchnorm(network net)
                 int f;
                 for (f = 0; f < l->n; ++f)
                 {
+                    printf("l->n %d l->size %d ",l->n,l->size);
+                    exit(0);
                     l->biases[f] = l->biases[f] - (double)l->scales[f] * l->rolling_mean[f] / (sqrt((double)l->rolling_variance[f] + .00001));
 
                     double precomputed = l->scales[f] / (sqrt((double)l->rolling_variance[f] + .00001));
