@@ -2177,12 +2177,15 @@ void gemm_nn(int M, int N, int K, float ALPHA,
             for (j = 0; j < N; ++j)
             {
                 C[i * ldc + j] += A_PART * B[k * ldb + j];
-                if(j<3)
-                    printf("\n k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f",k,j,ALPHA, A[i * lda + k],B[k * ldb + j]);
+                if(j<1&&k<1)
+                    printf("\ni:%d k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f",i,k,j,ALPHA, A[i * lda + k],B[k * ldb + j]);
             }
         }
-        exit(0);
+        // exit(0);
     }
+    // exit(0);
+    if(K==64) exit(0);
+   
 }
 
 void gemm_nn_fast(int M, int N, int K, float ALPHA,

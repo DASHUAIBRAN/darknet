@@ -952,12 +952,12 @@ convolutional_layer make_convolutional_layer(int batch, int steps, int h, int w,
         }
 #endif // GPU
     }
-    int aa;
-    for (aa = 0; aa < 10; aa++)
-    {
-        /* code */
-        printf("here l.weights[%d] = %lf \n", aa, l.weights[aa]);
-    }
+    // int aa;
+    // for (aa = 0; aa < 10; aa++)
+    // {
+    //     /* code */
+    //     printf("here l.weights[%d] = %lf \n", aa, l.weights[aa]);
+    // }
     //exit(0);
     return l;
 }
@@ -1355,8 +1355,6 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     //     printf("\n inside state.input %d %lf",i,state.input[i]);
     // }
 
-
-
     fill_cpu(l.outputs * l.batch, 0, l.output, 1); // 先填充为0
 
     // printf("\n forward_convolutional_layer l.xnor：%d l.align_bit_weights:%s state.train:%d  \n", l.xnor, l.align_bit_weights, state.train);
@@ -1386,13 +1384,13 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     {
         for (j = 0; j < l.groups; ++j)
         {
-            int aa;
-            for (int aa = 0; aa < 10; aa++)
-            {
-                /* code */
-                printf("weight[%d]:%lf \n",aa, l.weights[aa]);
-            }
-            exit(0);
+            // int aa;
+            // for (int aa = 0; aa < 10; aa++)
+            // {
+            //     /* code */
+            //     printf("weight[%d]:%lf \n",aa, l.weights[aa]);
+            // }
+            // exit(0);
             float *a = l.weights + j * l.nweights / l.groups;
             float *b = state.workspace;
             float *c = l.output + (i * l.groups + j) * n * m;
@@ -1547,7 +1545,19 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
                                    l.pad * l.dilation, l.pad * l.dilation, // padding (h, w)
                                    l.stride_y, l.stride_x,                 // stride (h, w)
                                    l.dilation, l.dilation,                 // dilation (h, w)
-                                   b);                                     // output
+                                   b);
+
+                    // int aa, bb;
+                    // for (aa = 0; aa < 10; aa++)
+                    // {
+                    //     /* code */
+                    //     for (bb = 0; bb < 100; bb++)
+                    //     {
+                    //         /* code */
+                    //         printf("\naa %d bb %d %lf \n", aa, bb, b[aa * 100 + bb]);
+                    //     }
+
+                    // } // output
                 }
                 int i;
                 int len = l.size * l.size * l.c / l.groups;
@@ -1561,17 +1571,11 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
                 //     printf("\n imm_%d save ok",i);
                 // }
                 // printf("???");
-                // for (i = 0; i < 416*416*27; i++)
+
+                // if ((input_row * width + input_col) % 17000 == 0)
                 // {
-                //     printf("aaaaa");
-                //     /* code */
-                //     int r = i % (27*416);
-                //     if(r==0)
-                //     {
-                //         printf('\n here r:%lf \n',b[i]);
-                //     }
+                //     printf("input_row:%d width:%d input_col:%d %lf \n", input_row, width, input_col, data_im[input_row * width + input_col]);
                 // }
-                // exit(0);
 
                 gemm(0, 0, m, n, k, 1, a, k, b, n, 1, c, n);
                 // bit-count to float

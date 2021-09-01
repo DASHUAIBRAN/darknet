@@ -62,6 +62,19 @@ void im2col_cpu_ext(const float *data_im, const int channels,
                     const int dilation_h, const int dilation_w,
                     float *data_col)
 {
+
+    // for (int i = 0; i < 10; i++)
+    // {
+    //     /* code */
+    //     for (int j= 0; j < 10; j++)
+    //     {
+    //         /* code */
+    //         printf("\n i %d j %d data_im %lf",i,j,data_im[i*10+j]);
+    //     }
+        
+    // }
+    
+
     const int output_h = (height + 2 * pad_h -
                           (dilation_h * (kernel_h - 1) + 1)) /
                              stride_h +
@@ -72,7 +85,6 @@ void im2col_cpu_ext(const float *data_im, const int channels,
                          1;
     const int channel_size = height * width;
 
-    
     // printf("\n output_h:%d output_w:%d channel_size:%d \n",output_h,output_w,channel_size);
     // exit(0);
     int channel, kernel_row, kernel_col, output_rows, output_col;
@@ -93,7 +105,6 @@ void im2col_cpu_ext(const float *data_im, const int channels,
                             //        channel, channels, kernel_h, kernel_row, kernel_w, kernel_col, output_h, output_rows, output_col);
                             // printf("\n pad_h:%d kernel_row:%d dilation_h:%d height:%d ", pad_h, kernel_row, dilation_h, height);
                             *(data_col++) = 0;
-                            
                         }
                     }
                     else
@@ -108,9 +119,14 @@ void im2col_cpu_ext(const float *data_im, const int channels,
                             if (is_a_ge_zero_and_a_lt_b(input_col, width))
                             {
                                 *(data_col++) = data_im[input_row * width + input_col];
-                                // if ((input_row * width + input_col) % 17000 == 0)
+
+                                // if ((input_row * width + input_col) % 1 == 0&& channel>1)
                                 // {
                                 //     printf("input_row:%d width:%d input_col:%d %lf \n", input_row, width, input_col, data_im[input_row * width + input_col]);
+                                //     if(input_row * width + input_col>1000)
+                                //     {
+                                //         exit(0);
+                                //     }
                                 // }
                             }
                             else
@@ -125,4 +141,7 @@ void im2col_cpu_ext(const float *data_im, const int channels,
             }
         }
     }
+
+  
+    
 }

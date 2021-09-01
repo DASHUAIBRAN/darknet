@@ -2182,13 +2182,13 @@ void load_convolutional_weights(layer l, FILE *fp)
     int num = l.nweights;
     int read_bytes;
     read_bytes = fread(l.biases, sizeof(float), l.n, fp);
-    printf("l.n %d \n",l.n);
+    //printf("l.n %d \n",l.n);
     int i;
-    for (i = 0; i < l.n; i++)
-    {
-        /* code */
-        printf("\n %d %lf hhhh",i,l.biases[i]);
-    }
+    // for (i = 0; i < l.n; i++)
+    // {
+    //     /* code */
+    //     printf("\n %d %lf hhhh",i,l.biases[i]);
+    // }
     if (read_bytes > 0 && read_bytes < l.n) printf("\n Warning: Unexpected end of wights-file! l.biases - l.index = %d \n", l.index);
     //fread(l.weights, sizeof(float), num, fp); // as in connected layer
     if (l.batch_normalize && (!l.dontloadscales)){
@@ -2215,13 +2215,13 @@ void load_convolutional_weights(layer l, FILE *fp)
         }
     }
     read_bytes = fread(l.weights, sizeof(float), num, fp);
-    printf("\n number %d \n",num);
+    // printf("\n number %d \n",num);
   
-    for (i = 0; i < 10; i++)
-    {
-        /* code */
-        printf("\n %d %lf hhhh",i,l.weights[i]);
-    }
+    // for (i = 0; i < 10; i++)
+    // {
+    //     /* code */
+    //     printf("\n %d %lf hhhh",i,l.weights[i]);
+    // }
     
     //exit(0);
     if (read_bytes > 0 && read_bytes < l.n) printf("\n Warning: Unexpected end of wights-file! l.weights - l.index = %d \n", l.index);
@@ -2233,12 +2233,12 @@ void load_convolutional_weights(layer l, FILE *fp)
     if (l.flipped) {
         transpose_matrix(l.weights, (l.c/l.groups)*l.size*l.size, l.n);
     }
-    int aa;
-    for (aa = 0; aa < 10; aa++)
-    {
-        /* code */
-        printf("load %d l.weights:%lf \n",aa,l.weights[aa]);
-    }
+    // int aa;
+    // for (aa = 0; aa < 10; aa++)
+    // {
+    //     /* code */
+    //     printf("load %d l.weights:%lf \n",aa,l.weights[aa]);
+    // }
     // exit(0);
     //if (l.binary) binarize_weights(l.weights, l.n, (l.c/l.groups)*l.size*l.size, l.weights);
 #ifdef GPU
