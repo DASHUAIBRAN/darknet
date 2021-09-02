@@ -2177,11 +2177,11 @@ void gemm_nn(int M, int N, int K, float ALPHA,
             for (j = 0; j < N; ++j)
             {
                 C[i * ldc + j] += A_PART * B[k * ldb + j];
-                if(j<1&&k<1)
+                if(j<1)
                     printf("\ni:%d k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f",i,k,j,ALPHA, A[i * lda + k],B[k * ldb + j]);
             }
         }
-        // exit(0);
+        exit(0);
     }
     // exit(0);
     if(K==64) exit(0);
@@ -2895,8 +2895,8 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
               float BETA,
               float *C, int ldc)
 {
-    // printf("cpu: TA:%d TB:%d M:%d N:%d K:%d ALPHA:%f lda:%d ldb:%d BETA:%f ldc:%d\n",
-    //  TA, TB, M, N, K, ALPHA, lda, ldb, BETA, ldc);
+    printf("cpu: TA:%d TB:%d M:%d N:%d K:%d ALPHA:%f lda:%d ldb:%d BETA:%f ldc:%d\n",
+     TA, TB, M, N, K, ALPHA, lda, ldb, BETA, ldc);
     if (BETA != 1)
     {
         int i, j;

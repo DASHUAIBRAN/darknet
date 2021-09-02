@@ -268,6 +268,7 @@ network make_network(int n)
 
 void forward_network(network net, network_state state)
 {
+    printf("\n net.n %d \n",net.n);
     state.workspace = net.workspace;
     int i;
     for(i = 0; i < net.n; ++i){
@@ -278,7 +279,7 @@ void forward_network(network net, network_state state)
         }
         double time = get_time_point();
         l.forward(l, state);
-        // printf("%d - Predicted in %lf milli-seconds.\n", i, ((double)get_time_point() - time) / 1000);
+        printf("\n %d - Predicted in %lf milli-seconds.\n", i, ((double)get_time_point() - time) / 1000);
         state.input = l.output;
 
         
@@ -1288,7 +1289,7 @@ void fuse_conv_batchnorm(network net)
                 int f;
                 for (f = 0; f < l->n; ++f)
                 {
-                    // printf("l->n %d l->size %d ",l->n,l->size);
+                    //printf("l->n %d l->size %d ",l->n,l->size);
                     // exit(0);
                     l->biases[f] = l->biases[f] - (double)l->scales[f] * l->rolling_mean[f] / (sqrt((double)l->rolling_variance[f] + .00001));
 
@@ -1298,7 +1299,7 @@ void fuse_conv_batchnorm(network net)
                     int i;
                     for (i = 0; i < filter_size; ++i) {
                         int w_index = f*filter_size + i;
-
+                        //printf("\n w_index%d \n",w_index);
                         l->weights[w_index] *= precomputed;
                     }
                 }

@@ -1375,11 +1375,11 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     int m = l.n / l.groups;
     int k = l.size * l.size * l.c / l.groups;
     int n = out_h * out_w;
-    // printf(
-    //     "\n l.n:%d l.groups:%d l.size:%d l.c:%d m:%d k:%d l.batch:%d l.bit_align:%d l.stride:%d l.dilation:%d\n", l.n, l.groups, l.size, l.c, m, k, l.batch, l.bit_align, l.stride, l.dilation);
+    printf(
+        "\n l.n:%d l.groups:%d l.size:%d l.c:%d m:%d k:%d l.batch:%d l.bit_align:%d l.stride:%d l.dilation:%d\n", l.n, l.groups, l.size, l.c, m, k, l.batch, l.bit_align, l.stride, l.dilation);
     static int u = 0;
     u++;
-
+    printf("\n tohere 2 \n ");
     for (i = 0; i < l.batch; ++i)
     {
         for (j = 0; j < l.groups; ++j)
@@ -1576,7 +1576,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
                 // {
                 //     printf("input_row:%d width:%d input_col:%d %lf \n", input_row, width, input_col, data_im[input_row * width + input_col]);
                 // }
-
+                printf("\n tohere 1 \n");
                 gemm(0, 0, m, n, k, 1, a, k, b, n, 1, c, n);
                 // bit-count to float
             }
