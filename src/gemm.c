@@ -2161,7 +2161,7 @@ int is_fma_avx2()
 
 // a^2 + 2ab + b^2 + c^2 +2cd + d^2 = (a+b)^2 +(c+d)^2
 // ab+ cd = {(a+b)^2 +(c+d)^2 - (a^2 +b^2 + c^2 +d^2)} /2
-// 
+//
 void gemm_nn(int M, int N, int K, float ALPHA,
              float *A, int lda,
              float *B, int ldb,
@@ -2177,15 +2177,18 @@ void gemm_nn(int M, int N, int K, float ALPHA,
             for (j = 0; j < N; ++j)
             {
                 C[i * ldc + j] += A_PART * B[k * ldb + j];
-                if(j<1)
-                    printf("\ni:%d k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f",i,k,j,ALPHA, A[i * lda + k],B[k * ldb + j]);
+                if (j < 1)
+                {
+                    printf("\ni:%d k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f C[i * ldc + j]:%lf", i, k, j, ALPHA, A[i * lda + k], B[k * ldb + j], C[i * ldc + j]);
+                    printf("\nB[%d] %lf \n",k * ldb + j,B[k * ldb + j]);
+                }
             }
         }
         exit(0);
     }
     // exit(0);
-    if(K==64) exit(0);
-   
+    if (K == 64)
+        exit(0);
 }
 
 void gemm_nn_fast(int M, int N, int K, float ALPHA,
@@ -2896,9 +2899,10 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
               float *C, int ldc)
 {
     printf("cpu: TA:%d TB:%d M:%d N:%d K:%d ALPHA:%f lda:%d ldb:%d BETA:%f ldc:%d\n",
-     TA, TB, M, N, K, ALPHA, lda, ldb, BETA, ldc);
+           TA, TB, M, N, K, ALPHA, lda, ldb, BETA, ldc);
     if (BETA != 1)
     {
+        printf("\nhere1 \n ");
         int i, j;
         for (i = 0; i < M; ++i)
         {
@@ -2912,6 +2916,7 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
     is_avx(); // initialize static variable
     if (is_fma_avx2() && !TA && !TB)
     {
+        printf("\nhere2 \n ");
         gemm_nn_fast(M, N, K, ALPHA, A, lda, B, ldb, C, ldc);
     }
     else
@@ -2924,7 +2929,8 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
             if (!TA && !TB)
             {
                 gemm_nn(1, N, K, ALPHA, A + t * lda, lda, B, ldb, C + t * ldc, ldc);
-                
+                if (t == 1 && K == 288)
+                    exit(0);
             }
             else if (TA && !TB)
             {
