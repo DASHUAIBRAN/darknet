@@ -1728,6 +1728,24 @@ void test_resize(char *filename)
 #endif
 }
 
+void file_write(float *im,int length)
+{
+    //写数据
+    int i;
+    FILE *outfile;
+    outfile = fopen("image.txt", "w");
+    if (outfile == NULL)
+    {
+        printf("Can't open the file!\n");
+    }
+    for (i = 0; i < length; i++)
+    {
+        fprintf(outfile,"%lf\n",im[i]);
+        
+    }
+    fclose(outfile);
+}
+
 image load_image_stb(char *filename, int channels)
 {
     int w, h, c;
@@ -1765,14 +1783,16 @@ image load_image_stb(char *filename, int channels)
             {
                 int dst_index = i + w * j + w * h * k;
                 int src_index = k + c * i + c * w * j;
-                im.data[dst_index] = (float)data[src_index];
-
+                im.data[dst_index] = (float)data[src_index] / 255.;
             }
         }
     }
+    file_write(im.data,c*h*w);
     free(data);
     return im;
 }
+
+
 
 image load_image_stb_resize(char *filename, int w, int h, int c)
 {
@@ -1832,7 +1852,7 @@ void print_image(image m)
         {
             for (k = 0; k < m.w; ++k)
             {
-                printf("%d %lf, \n",i * m.h * m.w + j * m.w + k, m.data[i * m.h * m.w + j * m.w + k]);
+                printf("%d %lf, \n", i * m.h * m.w + j * m.w + k, m.data[i * m.h * m.w + j * m.w + k]);
                 if (k > 30)
                     break;
             }
