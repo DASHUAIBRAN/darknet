@@ -1765,15 +1765,8 @@ image load_image_stb(char *filename, int channels)
             {
                 int dst_index = i + w * j + w * h * k;
                 int src_index = k + c * i + c * w * j;
-                im.data[dst_index] = (float)data[src_index] / 255.;
+                im.data[dst_index] = (float)data[src_index];
 
-                if (strcmp(filename, "data/dog.jpg") == 0)
-                {
-                    if(k<1&&j<1&&i<30)
-                    {
-                       // printf("dst_index:%d src_index:%d data[src_index]:%d \n",dst_index,src_index,data[src_index]);
-                    }
-                }
             }
         }
     }
