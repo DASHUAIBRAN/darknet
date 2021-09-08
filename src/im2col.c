@@ -85,7 +85,7 @@ void im2col_cpu_ext(const float *data_im, const int channels,
                          1;
     const int channel_size = height * width;
 
-    // printf("\n output_h:%d output_w:%d channel_size:%d \n",output_h,output_w,channel_size);
+    printf("\n output_h:%d output_w:%d channel_size:%d \n",output_h,output_w,channel_size);
     // exit(0);
     int channel, kernel_row, kernel_col, output_rows, output_col;
     for (channel = channels; channel--; data_im += channel_size)

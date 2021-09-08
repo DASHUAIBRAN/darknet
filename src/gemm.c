@@ -2169,6 +2169,7 @@ void gemm_nn(int M, int N, int K, float ALPHA,
 {
     int i, j, k, ti;
     printf("\nM:%d N:%d K:%d ALPHA:%lf lda:%d ldb:%d ldc:%d\n", M, N, K, ALPHA, lda, ldb, ldc);
+    // printf("\n sizeof(C) %d sizeof(B) %d\n",sizeof(C),sizeof(B));
     for (i = 0; i < M; ++i)
     {
         for (k = 0; k < K; ++k)
@@ -2177,18 +2178,41 @@ void gemm_nn(int M, int N, int K, float ALPHA,
             for (j = 0; j < N; ++j)
             {
                 C[i * ldc + j] += A_PART * B[k * ldb + j];
-                if (j < 1)
-                {
-                    printf("\ni:%d k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f C[i * ldc + j]:%lf", i, k, j, ALPHA, A[i * lda + k], B[k * ldb + j], C[i * ldc + j]);
-                    printf("\nB[%d] %lf \n",k * ldb + j,B[k * ldb + j]);
-                }
+                // if (k==0&&B[k * ldb + j]!=0&&j<500&&K==288)
+                // {
+                //     printf("\ni:%d k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f C[i * ldc + j]:%lf", i, k, j, ALPHA, A[i * lda + k], B[k * ldb + j], C[i * ldc + j]);
+                //     printf("\nB[%d] %lf \n",k * ldb + j,B[k * ldb + j]);
+                // }
+                // if (K == 288 && i * N + j < 100)
+                // {
+                //     printf("\n inner  output[i * N + j] %lf A_PART %lf net.input[k * N + j] %lf A[i * lda + k] %lf\n",C[i * ldc + j], A_PART, B[k * ldb + j],A[i * lda + k]);
+                    
+                // }
+                
             }
+            // if(K==288) exit(0);
         }
-        exit(0);
+        //  exit(0);
     }
+
+    // if (K == 288)
+    // {
+    //     int aa, bb, AA = 10, BB = 100;
+    //     for (aa = 0; aa < AA; aa++)
+    //     {
+    //         /* code */
+    //         for (bb = 0; bb < BB; bb++)
+    //         {
+    //             /* code */
+    //             printf("\n inner aa %d bb %d %lf \n", aa, bb, C[aa * BB + bb]);
+    //         }
+    //     }
+    //     exit(0);
+    // }
+
     // exit(0);
-    if (K == 64)
-        exit(0);
+    // if (K == 64)
+    //     exit(0);
 }
 
 void gemm_nn_fast(int M, int N, int K, float ALPHA,
@@ -2582,6 +2606,16 @@ void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
             x[i] = activate(x[i], a);
         }
     }
+    // int aa, bb, AA = 1, BB = 10;
+    // for (aa = 0; aa < AA; aa++)
+    // {
+    //     /* code */
+    //     for (bb = 0; bb < BB; bb++)
+    //     {
+    //         /* code */
+    //         printf("\n after activate aa %d bb %d %lf \n", aa, bb, x[aa * BB + bb]);
+    //     }
+    // }
 }
 
 void float_to_bit(float *src, unsigned char *dst, size_t size)
@@ -2902,7 +2936,7 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
            TA, TB, M, N, K, ALPHA, lda, ldb, BETA, ldc);
     if (BETA != 1)
     {
-        printf("\nhere1 \n ");
+        printf("\n BETA \n");
         int i, j;
         for (i = 0; i < M; ++i)
         {
@@ -2924,13 +2958,12 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
         int t, ti;
 
 #pragma omp parallel for
+        printf("\nthe M %d \n", M);
         for (t = 0; t < M; ++t)
         {
             if (!TA && !TB)
             {
                 gemm_nn(1, N, K, ALPHA, A + t * lda, lda, B, ldb, C + t * ldc, ldc);
-                if (t == 1 && K == 288)
-                    exit(0);
             }
             else if (TA && !TB)
             {

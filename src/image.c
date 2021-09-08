@@ -1728,12 +1728,12 @@ void test_resize(char *filename)
 #endif
 }
 
-void file_write(float *im,int length)
+void file_write(char * file,float *im,int length)
 {
     //写数据
     int i;
     FILE *outfile;
-    outfile = fopen("image.txt", "w");
+    outfile = fopen(file, "w");
     if (outfile == NULL)
     {
         printf("Can't open the file!\n");
@@ -1783,11 +1783,11 @@ image load_image_stb(char *filename, int channels)
             {
                 int dst_index = i + w * j + w * h * k;
                 int src_index = k + c * i + c * w * j;
-                im.data[dst_index] = (float)data[src_index] / 255.;
+                im.data[dst_index] = (float)data[src_index]/255.;
             }
         }
     }
-    file_write(im.data,c*h*w);
+    //file_write("image.txt",im.data,c*h*w);
     free(data);
     return im;
 }

@@ -67,7 +67,7 @@ image collapse_image_layers(image source, int border);
 image collapse_images_horz(image *ims, int n);
 image collapse_images_vert(image *ims, int n);
 
-void file_write(float *im,int length);
+void file_write(char * file,float *im,int length);
 void show_image(image p, const char *name);
 void show_image_normalized(image im, const char *name);
 void save_image_png(image im, const char *name);
