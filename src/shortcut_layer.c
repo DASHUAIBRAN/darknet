@@ -14,7 +14,8 @@ layer make_shortcut_layer(int batch, int n, int *input_layers, int* input_sizes,
     fprintf(stderr, "Shortcut Layer: ");
     int i;
     for(i = 0; i < n; ++i) fprintf(stderr, "%d, ", input_layers[i]);
-
+    // printf("\nmake_shortcut_layer\n");
+    // exit(0);
     layer l = { (LAYER_TYPE)0 };
     l.train = train;
     l.type = SHORTCUT;
@@ -176,8 +177,22 @@ void forward_shortcut_layer(const layer l, network_state state)
     else if (l.activation == MISH) activate_array_mish(l.output, l.outputs*l.batch, l.activation_input, l.output);
     else activate_array_cpu_custom(l.output, l.outputs*l.batch, l.activation);
 
+    // if (l.index == 4)
+    // {
+    //     int aa, bb, AA = 10, BB = 100;
+    //     for (aa = 0; aa < AA; aa++)
+    //     {
+    //         /* code */
+    //         for (bb = 0; bb < BB; bb++)
+    //         {
+    //             /* code */
+    //             printf("\naa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
+    //         }
+    //     }
+    //     exit(0);
+    // }
     
-    exit(0);
+    // exit(0);
 }
 
 void backward_shortcut_layer(const layer l, network_state state)

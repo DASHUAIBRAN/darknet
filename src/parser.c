@@ -1109,7 +1109,7 @@ layer parse_shortcut(list *options, size_params params, network net)
     float **layers_delta = (float **)calloc(n, sizeof(float *));
     float **layers_output_gpu = (float **)calloc(n, sizeof(float *));
     float **layers_delta_gpu = (float **)calloc(n, sizeof(float *));
-
+    printf("\n n %d \n",n);
     for (i = 0; i < n; ++i)
     {
         int index = atoi(l);

@@ -1911,6 +1911,8 @@ void im2col_cpu_custom_bin(float *data_im,
 
 void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
 {
+    printf("\nto here ? activate_array_cpu_custom\n");
+
     int i = 0;
     if (a == LINEAR)
     {
@@ -2588,12 +2590,15 @@ void im2col_cpu_custom_bin(float *data_im,
 
 void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
 {
+    printf("\nto here ? 333activate_array_cpu_custom\n");
     int i;
     if (a == LINEAR)
     {
+        printf("\nto here ? LINEAR\n");
     }
     else if (a == LEAKY)
     {
+        printf("\nto here ? 3332121activate_array_cpu_custom\n");
         for (i = 0; i < n; ++i)
         {
             x[i] = (x[i] > 0) ? x[i] : .1 * x[i];
@@ -2601,6 +2606,8 @@ void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
     }
     else
     {
+        printf("\nto else ? LINEAR\n");
+
         for (i = 0; i < n; ++i)
         {
             x[i] = activate(x[i], a);
