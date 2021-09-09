@@ -73,7 +73,6 @@ void im2col_cpu_ext(const float *data_im, const int channels,
     //     }
         
     // }
-    
 
     const int output_h = (height + 2 * pad_h -
                           (dilation_h * (kernel_h - 1) + 1)) /
@@ -85,7 +84,10 @@ void im2col_cpu_ext(const float *data_im, const int channels,
                          1;
     const int channel_size = height * width;
 
-    printf("\n output_h:%d output_w:%d channel_size:%d \n",output_h,output_w,channel_size);
+
+    //printf("\n  output_h:%d output_w:%d channel_size:%d \n",output_h,output_w,channel_size);
+    // printf("\n  height:%d pad_h:%d dilation_h:%d kernel_h:%d stride_h:%d\n"
+    // ,height,pad_h,dilation_h,kernel_h,stride_h);
     // exit(0);
     int channel, kernel_row, kernel_col, output_rows, output_col;
     for (channel = channels; channel--; data_im += channel_size)

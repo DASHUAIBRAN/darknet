@@ -149,12 +149,13 @@ void resize_shortcut_layer(layer *l, int w, int h, network *net)
 
 void forward_shortcut_layer(const layer l, network_state state)
 {
+    printf("\nforward_shortcut_layer\n");
     int from_w = state.net.layers[l.index].w;
     int from_h = state.net.layers[l.index].h;
     int from_c = state.net.layers[l.index].c;
-    // printf("\n shortcut_layer from_w:%d from_h:%d from_c:%d \n",from_w,from_h,from_c);
+    printf("\n shortcut_layer from_w:%d from_h:%d from_c:%d \n",from_w,from_h,from_c);
     if (l.nweights == 0 && l.n == 1 && from_w == l.w && from_h == l.h && from_c == l.c) {
-        // printf("shortcut_layer l.nweights == 0 && l.n == 1 && from_w == l.w && from_h == l.h && from_c == l.c");
+        printf("shortcut_layer l.nweights == 0 && l.n == 1 && from_w == l.w && from_h == l.h && from_c == l.c");
         int size = l.batch * l.w * l.h * l.c;
         int i;
         #pragma omp parallel for
@@ -162,8 +163,8 @@ void forward_shortcut_layer(const layer l, network_state state)
             l.output[i] = state.input[i] + state.net.layers[l.index].output[i];
     }
     else {
-        // printf("shortcut_layer here l.outputs:%d l.batch:%d l.n:%d l.nweights:%d",
-        // l.outputs,l.batch,l.n,l.nweights);
+        printf("shortcut_layer here l.outputs:%d l.batch:%d l.n:%d l.nweights:%d",
+        l.outputs,l.batch,l.n,l.nweights);
         shortcut_multilayer_cpu(l.outputs * l.batch, l.outputs, l.batch, l.n, l.input_sizes, l.layers_output, l.output, state.input, l.weights, l.nweights, l.weights_normalization);
     }
 
@@ -174,6 +175,9 @@ void forward_shortcut_layer(const layer l, network_state state)
     if (l.activation == SWISH) activate_array_swish(l.output, l.outputs*l.batch, l.activation_input, l.output);
     else if (l.activation == MISH) activate_array_mish(l.output, l.outputs*l.batch, l.activation_input, l.output);
     else activate_array_cpu_custom(l.output, l.outputs*l.batch, l.activation);
+
+    
+    exit(0);
 }
 
 void backward_shortcut_layer(const layer l, network_state state)
