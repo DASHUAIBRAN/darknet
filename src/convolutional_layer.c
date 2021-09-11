@@ -1596,6 +1596,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
             //if(k==288) exit(0);
             //c += n*m;
             //state.input += l.c*l.h*l.w;
+         
         }
     }
 
@@ -1606,6 +1607,20 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     else
     {
         add_bias(l.output, l.biases, l.batch, l.n, out_h * out_w);
+    }
+    if (l.index >= 81)
+    {
+        int aa, bb, AA = 10, BB = 100;
+        for (aa = 0; aa < AA; aa++)
+        {
+            /* code */
+            for (bb = 0; bb < BB; bb++)
+            {
+                /* code */
+                printf("\naa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
+            }
+        }
+        exit(0);
     }
 
     //activate_array(l.output, m*n*l.batch, l.activation);
@@ -1635,6 +1650,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
 
     if (l.antialiasing)
     {
+        printf("\nhere ? l.antialiasing\n");
         network_state s = {0};
         s.train = state.train;
         s.workspace = state.workspace;
@@ -1646,20 +1662,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     }
 
     printf("\nl.index %d\n", l.index);
-    if (l.index >=39)
-    {
-        int aa, bb, AA = 10, BB = 100;
-        for (aa = 0; aa < AA; aa++)
-        {
-            /* code */
-            for (bb = 0; bb < BB; bb++)
-            {
-                /* code */
-                printf("\naa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
-            }
-        }
-        exit(0);
-    }
+    
 }
 
 void assisted_excitation_forward(convolutional_layer l, network_state state)

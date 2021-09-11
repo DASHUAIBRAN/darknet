@@ -2965,11 +2965,12 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
         int t, ti;
 
 #pragma omp parallel for
-        printf("\nthe M %d \n", M);
+        printf("\nthe M %d TA %d TB %d \n", M,TA,TB);
         for (t = 0; t < M; ++t)
         {
             if (!TA && !TB)
             {
+               
                 gemm_nn(1, N, K, ALPHA, A + t * lda, lda, B, ldb, C + t * ldc, ldc);
             }
             else if (TA && !TB)

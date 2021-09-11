@@ -2593,15 +2593,7 @@ void load_convolutional_weights(layer l, FILE *fp)
         if (read_bytes > 0 && read_bytes < l.n)
             printf("\n Warning: Unexpected end of wights-file! l.rolling_mean - l.index = %d \n", l.index);
         read_bytes = fread(l.rolling_variance, sizeof(float), l.n, fp);
-        // if (l.index == 25)
-        // {
-        //     for (i = 0; i < l.n; i++)
-        //     {
-        //         /* code */
-        //         printf("\n l.rolling_variance %d %lf \n", i, l.rolling_variance[i]);
-        //     }
-        //     exit(0);
-        // }
+
         if (read_bytes > 0 && read_bytes < l.n)
             printf("\n Warning: Unexpected end of wights-file! l.rolling_variance - l.index = %d \n", l.index);
         if (0)
@@ -2625,15 +2617,16 @@ void load_convolutional_weights(layer l, FILE *fp)
         }
     }
     read_bytes = fread(l.weights, sizeof(float), num, fp);
-    // printf("\n number %d \n",num);
-
-    // for (i = 0; i < 10; i++)
+    // if (l.index == 81)
     // {
-    //     /* code */
-    //     printf("\n %d %lf hhhh",i,l.weights[i]);
+    //     printf("\n num %d\n",num);
+    //     for (i = 0; i < 100; i++)
+    //     {
+    //         /* code */
+    //         printf("\n l.weights %d %lf \n", i, l.weights[i]);
+    //     }
+    //     exit(0);
     // }
-
-    //exit(0);
     if (read_bytes > 0 && read_bytes < l.n)
         printf("\n Warning: Unexpected end of wights-file! l.weights - l.index = %d \n", l.index);
     //if(l.adam){

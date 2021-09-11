@@ -1495,6 +1495,7 @@ static float lrelu(float src)
 
 void fuse_conv_batchnorm(network net)
 {
+
     int j;
     for (j = 0; j < net.n; ++j)
     {
@@ -1502,15 +1503,24 @@ void fuse_conv_batchnorm(network net)
 
         if (l->type == CONVOLUTIONAL)
         {
+
+            // if (l->index == 81)
+            // {
+            //     printf("l->batch_normalize %d ?",l->batch_normalize);
+            //     exit(0);
+            // }
             //printf(" Merges Convolutional-%d and batch_norm \n", j);
 
             if (l->share_layer != NULL)
             {
                 l->batch_normalize = 0;
+                printf("linear ?");
+                exit(0);
             }
 
             if (l->batch_normalize)
             {
+
                 int f;
                 for (f = 0; f < l->n; ++f)
                 {
@@ -1542,6 +1552,7 @@ void fuse_conv_batchnorm(network net)
         }
         else if (l->type == SHORTCUT && l->weights && l->weights_normalization)
         {
+
             if (l->nweights > 0)
             {
                 //cuda_pull_array(l.weights_gpu, l.weights, l.nweights);
@@ -1606,6 +1617,11 @@ void fuse_conv_batchnorm(network net)
         }
         else
         {
+            if (l->index == 81)
+            {
+                printf("81 ?");
+                exit(0);
+            }
             //printf(" Fusion skip layer type: %d \n", l->type);
         }
     }

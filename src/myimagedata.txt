@@ -12,7 +12,7 @@ aa 0 bb 5 l.output -0.048503
 
 aa 0 bb 6 l.output -0.048506
 
-aa 0 bb 7 l.output -0.048510
+aa 0 bb 7 l.output -0.04851
 
 aa 0 bb 8 l.output -0.048505
 
@@ -22,7 +22,7 @@ aa 0 bb 10 l.output -0.048509
 
 aa 0 bb 11 l.output -0.048502
 
-aa 0 bb 12 l.output -0.048500
+aa 0 bb 12 l.output -0.0485
 
 aa 0 bb 13 l.output -0.048499
 
@@ -40,7 +40,7 @@ aa 0 bb 19 l.output -0.048513
 
 aa 0 bb 20 l.output -0.048515
 
-aa 0 bb 21 l.output -0.048510
+aa 0 bb 21 l.output -0.04851
 
 aa 0 bb 22 l.output -0.048501
 
@@ -58,7 +58,7 @@ aa 0 bb 28 l.output -0.048494
 
 aa 0 bb 29 l.output -0.048488
 
-aa 0 bb 30 l.output -0.048490
+aa 0 bb 30 l.output -0.04849
 
 aa 0 bb 31 l.output -0.048494
 
@@ -70,7 +70,7 @@ aa 0 bb 34 l.output -0.048479
 
 aa 0 bb 35 l.output -0.048492
 
-aa 0 bb 36 l.output -0.048490
+aa 0 bb 36 l.output -0.04849
 
 aa 0 bb 37 l.output -0.048488
 
@@ -116,11 +116,11 @@ aa 0 bb 57 l.output -0.048491
 
 aa 0 bb 58 l.output -0.048477
 
-aa 0 bb 59 l.output -0.048490
+aa 0 bb 59 l.output -0.04849
 
 aa 0 bb 60 l.output -0.048491
 
-aa 0 bb 61 l.output -0.048492
+aa 0 bb 61 l.output -0.048493
 
 aa 0 bb 62 l.output -0.048481
 
@@ -162,7 +162,7 @@ aa 0 bb 80 l.output -0.048489
 
 aa 0 bb 81 l.output -0.048478
 
-aa 0 bb 82 l.output -0.048480
+aa 0 bb 82 l.output -0.04848
 
 aa 0 bb 83 l.output -0.048497
 
@@ -188,7 +188,7 @@ aa 0 bb 93 l.output -0.048474
 
 aa 0 bb 94 l.output -0.048473
 
-aa 0 bb 95 l.output -0.048480
+aa 0 bb 95 l.output -0.04848
 
 aa 0 bb 96 l.output -0.048487
 
@@ -202,7 +202,7 @@ aa 1 bb 0 l.output -0.048491
 
 aa 1 bb 1 l.output -0.048495
 
-aa 1 bb 2 l.output -0.048500
+aa 1 bb 2 l.output -0.0485
 
 aa 1 bb 3 l.output -0.048496
 
@@ -218,11 +218,11 @@ aa 1 bb 8 l.output -0.048483
 
 aa 1 bb 9 l.output -0.048483
 
-aa 1 bb 10 l.output -0.048470
+aa 1 bb 10 l.output -0.04847
 
 aa 1 bb 11 l.output -0.048475
 
-aa 1 bb 12 l.output -0.048490
+aa 1 bb 12 l.output -0.04849
 
 aa 1 bb 13 l.output -0.048487
 
@@ -240,7 +240,7 @@ aa 1 bb 19 l.output -0.048476
 
 aa 1 bb 20 l.output -0.048483
 
-aa 1 bb 21 l.output -0.048480
+aa 1 bb 21 l.output -0.04848
 
 aa 1 bb 22 l.output -0.048492
 
@@ -264,7 +264,7 @@ aa 1 bb 31 l.output -0.048487
 
 aa 1 bb 32 l.output -0.048505
 
-aa 1 bb 33 l.output -0.048500
+aa 1 bb 33 l.output -0.0485
 
 aa 1 bb 34 l.output -0.048495
 
@@ -278,7 +278,7 @@ aa 1 bb 38 l.output -0.048478
 
 aa 1 bb 39 l.output -0.048484
 
-aa 1 bb 40 l.output -0.048490
+aa 1 bb 40 l.output -0.04849
 
 aa 1 bb 41 l.output -0.048491
 
@@ -296,9 +296,9 @@ aa 1 bb 47 l.output -0.048488
 
 aa 1 bb 48 l.output -0.048484
 
-aa 1 bb 49 l.output -0.048480
+aa 1 bb 49 l.output -0.04848
 
-aa 1 bb 50 l.output -0.048480
+aa 1 bb 50 l.output -0.04848
 
 aa 1 bb 51 l.output -0.048479
 
@@ -338,7 +338,7 @@ aa 1 bb 68 l.output -0.048494
 
 aa 1 bb 69 l.output -0.048497
 
-aa 1 bb 70 l.output -0.048500
+aa 1 bb 70 l.output -0.0485
 
 aa 1 bb 71 l.output -0.048489
 
@@ -360,7 +360,7 @@ aa 1 bb 79 l.output -0.048488
 
 aa 1 bb 80 l.output -0.048484
 
-aa 1 bb 81 l.output -0.048490
+aa 1 bb 81 l.output -0.04849
 
 aa 1 bb 82 l.output -0.048494
 
@@ -384,13 +384,13 @@ aa 1 bb 91 l.output -0.048469
 
 aa 1 bb 92 l.output -0.048467
 
-aa 1 bb 93 l.output -0.048470
+aa 1 bb 93 l.output -0.04847
 
 aa 1 bb 94 l.output -0.048472
 
-aa 1 bb 95 l.output -0.048480
+aa 1 bb 95 l.output -0.04848
 
-aa 1 bb 96 l.output -0.048490
+aa 1 bb 96 l.output -0.04849
 
 aa 1 bb 97 l.output -0.048492
 
@@ -406,7 +406,7 @@ aa 2 bb 2 l.output -0.048495
 
 aa 2 bb 3 l.output -0.048497
 
-aa 2 bb 4 l.output -0.048490
+aa 2 bb 4 l.output -0.04849
 
 aa 2 bb 5 l.output -0.048492
 
@@ -416,7 +416,7 @@ aa 2 bb 7 l.output -0.048498
 
 aa 2 bb 8 l.output -0.048487
 
-aa 2 bb 9 l.output -0.048470
+aa 2 bb 9 l.output -0.04847
 
 aa 2 bb 10 l.output -0.048479
 
@@ -436,7 +436,7 @@ aa 2 bb 17 l.output -0.048477
 
 aa 2 bb 18 l.output -0.048474
 
-aa 2 bb 19 l.output -0.048460
+aa 2 bb 19 l.output -0.04846
 
 aa 2 bb 20 l.output -0.048455
 
@@ -456,13 +456,13 @@ aa 2 bb 27 l.output -0.048493
 
 aa 2 bb 28 l.output -0.048495
 
-aa 2 bb 29 l.output -0.048500
+aa 2 bb 29 l.output -0.0485
 
 aa 2 bb 30 l.output -0.048493
 
 aa 2 bb 31 l.output -0.048492
 
-aa 2 bb 32 l.output -0.048490
+aa 2 bb 32 l.output -0.04849
 
 aa 2 bb 33 l.output -0.048498
 
@@ -484,15 +484,15 @@ aa 2 bb 41 l.output -0.048487
 
 aa 2 bb 42 l.output -0.048505
 
-aa 2 bb 43 l.output -0.048490
+aa 2 bb 43 l.output -0.04849
 
 aa 2 bb 44 l.output -0.048487
 
-aa 2 bb 45 l.output -0.048490
+aa 2 bb 45 l.output -0.04849
 
 aa 2 bb 46 l.output -0.048492
 
-aa 2 bb 47 l.output -0.048490
+aa 2 bb 47 l.output -0.04849
 
 aa 2 bb 48 l.output -0.048477
 
@@ -502,13 +502,13 @@ aa 2 bb 50 l.output -0.048469
 
 aa 2 bb 51 l.output -0.048469
 
-aa 2 bb 52 l.output -0.048468
+aa 2 bb 52 l.output -0.048469
 
 aa 2 bb 53 l.output -0.048472
 
 aa 2 bb 54 l.output -0.048473
 
-aa 2 bb 55 l.output -0.048470
+aa 2 bb 55 l.output -0.04847
 
 aa 2 bb 56 l.output -0.048471
 
@@ -574,7 +574,7 @@ aa 2 bb 86 l.output -0.048504
 
 aa 2 bb 87 l.output -0.048491
 
-aa 2 bb 88 l.output -0.048500
+aa 2 bb 88 l.output -0.0485
 
 aa 2 bb 89 l.output -0.048497
 
@@ -584,7 +584,7 @@ aa 2 bb 91 l.output -0.048494
 
 aa 2 bb 92 l.output -0.048492
 
-aa 2 bb 93 l.output -0.048480
+aa 2 bb 93 l.output -0.04848
 
 aa 2 bb 94 l.output -0.048475
 
@@ -640,7 +640,7 @@ aa 3 bb 19 l.output -0.048485
 
 aa 3 bb 20 l.output -0.048481
 
-aa 3 bb 21 l.output -0.048480
+aa 3 bb 21 l.output -0.04848
 
 aa 3 bb 22 l.output -0.048488
 
@@ -676,13 +676,13 @@ aa 3 bb 37 l.output -0.048497
 
 aa 3 bb 38 l.output -0.048497
 
-aa 3 bb 39 l.output -0.048480
+aa 3 bb 39 l.output -0.04848
 
 aa 3 bb 40 l.output -0.048481
 
 aa 3 bb 41 l.output -0.048481
 
-aa 3 bb 42 l.output -0.048480
+aa 3 bb 42 l.output -0.04848
 
 aa 3 bb 43 l.output -0.048482
 
@@ -732,7 +732,7 @@ aa 3 bb 65 l.output -0.048481
 
 aa 3 bb 66 l.output -0.048486
 
-aa 3 bb 67 l.output -0.048490
+aa 3 bb 67 l.output -0.04849
 
 aa 3 bb 68 l.output -0.048487
 
@@ -758,7 +758,7 @@ aa 3 bb 78 l.output -0.048475
 
 aa 3 bb 79 l.output -0.048491
 
-aa 3 bb 80 l.output -0.048490
+aa 3 bb 80 l.output -0.04849
 
 aa 3 bb 81 l.output -0.048485
 
@@ -782,7 +782,7 @@ aa 3 bb 90 l.output -0.048498
 
 aa 3 bb 91 l.output -0.048481
 
-aa 3 bb 92 l.output -0.048480
+aa 3 bb 92 l.output -0.04848
 
 aa 3 bb 93 l.output -0.048482
 
@@ -796,13 +796,13 @@ aa 3 bb 97 l.output -0.048468
 
 aa 3 bb 98 l.output -0.048464
 
-aa 3 bb 99 l.output -0.048470
+aa 3 bb 99 l.output -0.04847
 
 aa 4 bb 0 l.output -0.048484
 
 aa 4 bb 1 l.output -0.048493
 
-aa 4 bb 2 l.output -0.048490
+aa 4 bb 2 l.output -0.04849
 
 aa 4 bb 3 l.output -0.048496
 
@@ -812,7 +812,7 @@ aa 4 bb 5 l.output -0.048486
 
 aa 4 bb 6 l.output -0.048478
 
-aa 4 bb 7 l.output -0.048480
+aa 4 bb 7 l.output -0.04848
 
 aa 4 bb 8 l.output -0.048488
 
@@ -824,7 +824,7 @@ aa 4 bb 11 l.output -0.048489
 
 aa 4 bb 12 l.output -0.048484
 
-aa 4 bb 13 l.output -0.048480
+aa 4 bb 13 l.output -0.04848
 
 aa 4 bb 14 l.output -0.048476
 
@@ -848,9 +848,9 @@ aa 4 bb 23 l.output -0.048475
 
 aa 4 bb 24 l.output -0.048482
 
-aa 4 bb 25 l.output -0.048490
+aa 4 bb 25 l.output -0.04849
 
-aa 4 bb 26 l.output -0.048490
+aa 4 bb 26 l.output -0.04849
 
 aa 4 bb 27 l.output -0.048482
 
@@ -898,7 +898,7 @@ aa 4 bb 48 l.output -0.048476
 
 aa 4 bb 49 l.output -0.048482
 
-aa 4 bb 50 l.output -0.048490
+aa 4 bb 50 l.output -0.04849
 
 aa 4 bb 51 l.output -0.048498
 
@@ -932,7 +932,7 @@ aa 4 bb 65 l.output -0.048485
 
 aa 4 bb 66 l.output -0.048488
 
-aa 4 bb 67 l.output -0.048500
+aa 4 bb 67 l.output -0.0485
 
 aa 4 bb 68 l.output -0.048497
 
@@ -940,7 +940,7 @@ aa 4 bb 69 l.output -0.048487
 
 aa 4 bb 70 l.output -0.048493
 
-aa 4 bb 71 l.output -0.048490
+aa 4 bb 71 l.output -0.04849
 
 aa 4 bb 72 l.output -0.048487
 
@@ -948,7 +948,7 @@ aa 4 bb 73 l.output -0.048482
 
 aa 4 bb 74 l.output -0.048474
 
-aa 4 bb 75 l.output -0.048480
+aa 4 bb 75 l.output -0.04848
 
 aa 4 bb 76 l.output -0.048479
 
@@ -968,7 +968,7 @@ aa 4 bb 83 l.output -0.048491
 
 aa 4 bb 84 l.output -0.048489
 
-aa 4 bb 85 l.output -0.048490
+aa 4 bb 85 l.output -0.04849
 
 aa 4 bb 86 l.output -0.048496
 
@@ -984,7 +984,7 @@ aa 4 bb 91 l.output -0.048492
 
 aa 4 bb 92 l.output -0.048499
 
-aa 4 bb 93 l.output -0.048500
+aa 4 bb 93 l.output -0.0485
 
 aa 4 bb 94 l.output -0.048485
 
@@ -994,7 +994,7 @@ aa 4 bb 96 l.output -0.048474
 
 aa 4 bb 97 l.output -0.048475
 
-aa 4 bb 98 l.output -0.048480
+aa 4 bb 98 l.output -0.04848
 
 aa 4 bb 99 l.output -0.048487
 
@@ -1002,7 +1002,7 @@ aa 5 bb 0 l.output -0.048486
 
 aa 5 bb 1 l.output -0.048489
 
-aa 5 bb 2 l.output -0.048490
+aa 5 bb 2 l.output -0.04849
 
 aa 5 bb 3 l.output -0.048487
 
@@ -1010,7 +1010,7 @@ aa 5 bb 4 l.output -0.048484
 
 aa 5 bb 5 l.output -0.048477
 
-aa 5 bb 6 l.output -0.048480
+aa 5 bb 6 l.output -0.04848
 
 aa 5 bb 7 l.output -0.048482
 
@@ -1020,7 +1020,7 @@ aa 5 bb 9 l.output -0.048495
 
 aa 5 bb 10 l.output -0.048494
 
-aa 5 bb 11 l.output -0.048490
+aa 5 bb 11 l.output -0.04849
 
 aa 5 bb 12 l.output -0.048489
 
@@ -1036,7 +1036,7 @@ aa 5 bb 17 l.output -0.048482
 
 aa 5 bb 18 l.output -0.048488
 
-aa 5 bb 19 l.output -0.048490
+aa 5 bb 19 l.output -0.04849
 
 aa 5 bb 20 l.output -0.048492
 
@@ -1050,7 +1050,7 @@ aa 5 bb 24 l.output -0.048483
 
 aa 5 bb 25 l.output -0.048475
 
-aa 5 bb 26 l.output -0.048470
+aa 5 bb 26 l.output -0.04847
 
 aa 5 bb 27 l.output -0.048472
 
@@ -1082,7 +1082,7 @@ aa 5 bb 40 l.output -0.048475
 
 aa 5 bb 41 l.output -0.048485
 
-aa 5 bb 42 l.output -0.048490
+aa 5 bb 42 l.output -0.04849
 
 aa 5 bb 43 l.output -0.048485
 
@@ -1130,13 +1130,13 @@ aa 5 bb 64 l.output -0.048488
 
 aa 5 bb 65 l.output -0.048485
 
-aa 5 bb 66 l.output -0.048480
+aa 5 bb 66 l.output -0.04848
 
 aa 5 bb 67 l.output -0.048484
 
 aa 5 bb 68 l.output -0.048493
 
-aa 5 bb 69 l.output -0.048490
+aa 5 bb 69 l.output -0.04849
 
 aa 5 bb 70 l.output -0.048489
 
@@ -1156,9 +1156,9 @@ aa 5 bb 77 l.output -0.048483
 
 aa 5 bb 78 l.output -0.048484
 
-aa 5 bb 79 l.output -0.048480
+aa 5 bb 79 l.output -0.04848
 
-aa 5 bb 80 l.output -0.048480
+aa 5 bb 80 l.output -0.04848
 
 aa 5 bb 81 l.output -0.048482
 
@@ -1184,7 +1184,7 @@ aa 5 bb 91 l.output -0.048494
 
 aa 5 bb 92 l.output -0.048495
 
-aa 5 bb 93 l.output -0.048490
+aa 5 bb 93 l.output -0.04849
 
 aa 5 bb 94 l.output -0.048492
 
@@ -1210,7 +1210,7 @@ aa 6 bb 4 l.output -0.048489
 
 aa 6 bb 5 l.output -0.048486
 
-aa 6 bb 6 l.output -0.048480
+aa 6 bb 6 l.output -0.04848
 
 aa 6 bb 7 l.output -0.048483
 
@@ -1238,7 +1238,7 @@ aa 6 bb 18 l.output -0.048487
 
 aa 6 bb 19 l.output -0.048489
 
-aa 6 bb 20 l.output -0.048490
+aa 6 bb 20 l.output -0.04849
 
 aa 6 bb 21 l.output -0.048492
 
@@ -1290,7 +1290,7 @@ aa 6 bb 44 l.output -0.048443
 
 aa 6 bb 45 l.output -0.048446
 
-aa 6 bb 46 l.output -0.048450
+aa 6 bb 46 l.output -0.04845
 
 aa 6 bb 47 l.output -0.048455
 
@@ -1316,7 +1316,7 @@ aa 6 bb 57 l.output -0.048514
 
 aa 6 bb 58 l.output -0.048516
 
-aa 6 bb 59 l.output -0.048520
+aa 6 bb 59 l.output -0.04852
 
 aa 6 bb 60 l.output -0.048525
 
@@ -1362,7 +1362,7 @@ aa 6 bb 80 l.output -0.054273
 
 aa 6 bb 81 l.output -0.054271
 
-aa 6 bb 82 l.output -0.054270
+aa 6 bb 82 l.output -0.05427
 
 aa 6 bb 83 l.output -0.054276
 
@@ -1378,7 +1378,7 @@ aa 6 bb 88 l.output -0.054278
 
 aa 6 bb 89 l.output -0.054277
 
-aa 6 bb 90 l.output -0.054270
+aa 6 bb 90 l.output -0.05427
 
 aa 6 bb 91 l.output -0.054271
 
@@ -1394,7 +1394,7 @@ aa 6 bb 96 l.output -0.054279
 
 aa 6 bb 97 l.output -0.054282
 
-aa 6 bb 98 l.output -0.054280
+aa 6 bb 98 l.output -0.05428
 
 aa 6 bb 99 l.output -0.054278
 
@@ -1422,7 +1422,7 @@ aa 7 bb 10 l.output -0.054318
 
 aa 7 bb 11 l.output -0.054321
 
-aa 7 bb 12 l.output -0.054320
+aa 7 bb 12 l.output -0.05432
 
 aa 7 bb 13 l.output -0.054314
 
@@ -1442,7 +1442,7 @@ aa 7 bb 20 l.output -0.054301
 
 aa 7 bb 21 l.output -0.054304
 
-aa 7 bb 22 l.output -0.054310
+aa 7 bb 22 l.output -0.05431
 
 aa 7 bb 23 l.output -0.054314
 
@@ -1456,7 +1456,7 @@ aa 7 bb 27 l.output -0.054304
 
 aa 7 bb 28 l.output -0.054294
 
-aa 7 bb 29 l.output -0.054290
+aa 7 bb 29 l.output -0.05429
 
 aa 7 bb 30 l.output -0.054288
 
@@ -1466,13 +1466,13 @@ aa 7 bb 32 l.output -0.054293
 
 aa 7 bb 33 l.output -0.054296
 
-aa 7 bb 34 l.output -0.054293
+aa 7 bb 34 l.output -0.054294
 
 aa 7 bb 35 l.output -0.054289
 
-aa 7 bb 36 l.output -0.054290
+aa 7 bb 36 l.output -0.05429
 
-aa 7 bb 37 l.output -0.054290
+aa 7 bb 37 l.output -0.05429
 
 aa 7 bb 38 l.output -0.054292
 
@@ -1550,7 +1550,7 @@ aa 7 bb 74 l.output -0.054288
 
 aa 7 bb 75 l.output -0.054291
 
-aa 7 bb 76 l.output -0.054290
+aa 7 bb 76 l.output -0.05429
 
 aa 7 bb 77 l.output -0.054287
 
@@ -1580,11 +1580,11 @@ aa 7 bb 89 l.output -0.054293
 
 aa 7 bb 90 l.output -0.054285
 
-aa 7 bb 91 l.output -0.054280
+aa 7 bb 91 l.output -0.05428
 
 aa 7 bb 92 l.output -0.054286
 
-aa 7 bb 93 l.output -0.054300
+aa 7 bb 93 l.output -0.0543
 
 aa 7 bb 94 l.output -0.054304
 
@@ -1608,7 +1608,7 @@ aa 8 bb 3 l.output -0.054284
 
 aa 8 bb 4 l.output -0.054288
 
-aa 8 bb 5 l.output -0.054290
+aa 8 bb 5 l.output -0.05429
 
 aa 8 bb 6 l.output -0.054297
 
@@ -1620,9 +1620,9 @@ aa 8 bb 9 l.output -0.054305
 
 aa 8 bb 10 l.output -0.054307
 
-aa 8 bb 11 l.output -0.054300
+aa 8 bb 11 l.output -0.0543
 
-aa 8 bb 12 l.output -0.054300
+aa 8 bb 12 l.output -0.0543
 
 aa 8 bb 13 l.output -0.054296
 
@@ -1634,7 +1634,7 @@ aa 8 bb 16 l.output -0.054287
 
 aa 8 bb 17 l.output -0.054283
 
-aa 8 bb 18 l.output -0.054280
+aa 8 bb 18 l.output -0.05428
 
 aa 8 bb 19 l.output -0.054287
 
@@ -1646,7 +1646,7 @@ aa 8 bb 22 l.output -0.054297
 
 aa 8 bb 23 l.output -0.054303
 
-aa 8 bb 24 l.output -0.054300
+aa 8 bb 24 l.output -0.0543
 
 aa 8 bb 25 l.output -0.054298
 
@@ -1670,7 +1670,7 @@ aa 8 bb 34 l.output -0.054314
 
 aa 8 bb 35 l.output -0.054314
 
-aa 8 bb 36 l.output -0.054310
+aa 8 bb 36 l.output -0.05431
 
 aa 8 bb 37 l.output -0.054308
 
@@ -1702,9 +1702,9 @@ aa 8 bb 50 l.output -0.054282
 
 aa 8 bb 51 l.output -0.054286
 
-aa 8 bb 52 l.output -0.054290
+aa 8 bb 52 l.output -0.05429
 
-aa 8 bb 53 l.output -0.054290
+aa 8 bb 53 l.output -0.05429
 
 aa 8 bb 54 l.output -0.054296
 
@@ -1732,13 +1732,13 @@ aa 8 bb 65 l.output -0.054282
 
 aa 8 bb 66 l.output -0.054286
 
-aa 8 bb 67 l.output -0.054290
+aa 8 bb 67 l.output -0.05429
 
 aa 8 bb 68 l.output -0.054295
 
-aa 8 bb 69 l.output -0.054300
+aa 8 bb 69 l.output -0.0543
 
-aa 8 bb 70 l.output -0.054300
+aa 8 bb 70 l.output -0.0543
 
 aa 8 bb 71 l.output -0.054299
 
@@ -1748,7 +1748,7 @@ aa 8 bb 73 l.output -0.054303
 
 aa 8 bb 74 l.output -0.054301
 
-aa 8 bb 75 l.output -0.054300
+aa 8 bb 75 l.output -0.0543
 
 aa 8 bb 76 l.output -0.054297
 
@@ -1812,17 +1812,17 @@ aa 9 bb 5 l.output -0.054305
 
 aa 9 bb 6 l.output -0.054303
 
-aa 9 bb 7 l.output -0.054300
+aa 9 bb 7 l.output -0.0543
 
-aa 9 bb 8 l.output -0.054300
+aa 9 bb 8 l.output -0.0543
 
-aa 9 bb 9 l.output -0.054300
+aa 9 bb 9 l.output -0.0543
 
 aa 9 bb 10 l.output -0.054299
 
 aa 9 bb 11 l.output -0.054293
 
-aa 9 bb 12 l.output -0.054290
+aa 9 bb 12 l.output -0.05429
 
 aa 9 bb 13 l.output -0.054286
 
@@ -1832,7 +1832,7 @@ aa 9 bb 15 l.output -0.054293
 
 aa 9 bb 16 l.output -0.054292
 
-aa 9 bb 17 l.output -0.054290
+aa 9 bb 17 l.output -0.05429
 
 aa 9 bb 18 l.output -0.054297
 
@@ -1842,11 +1842,11 @@ aa 9 bb 20 l.output -0.054292
 
 aa 9 bb 21 l.output -0.054285
 
-aa 9 bb 22 l.output -0.054280
+aa 9 bb 22 l.output -0.05428
 
 aa 9 bb 23 l.output -0.054292
 
-aa 9 bb 24 l.output -0.054300
+aa 9 bb 24 l.output -0.0543
 
 aa 9 bb 25 l.output -0.054294
 
@@ -1872,7 +1872,7 @@ aa 9 bb 35 l.output -0.054296
 
 aa 9 bb 36 l.output -0.054296
 
-aa 9 bb 37 l.output -0.054290
+aa 9 bb 37 l.output -0.05429
 
 aa 9 bb 38 l.output -0.054292
 
@@ -1884,7 +1884,7 @@ aa 9 bb 41 l.output -0.054309
 
 aa 9 bb 42 l.output -0.054301
 
-aa 9 bb 43 l.output -0.054300
+aa 9 bb 43 l.output -0.0543
 
 aa 9 bb 44 l.output -0.054309
 
@@ -1896,13 +1896,13 @@ aa 9 bb 47 l.output -0.054313
 
 aa 9 bb 48 l.output -0.054309
 
-aa 9 bb 49 l.output -0.054310
+aa 9 bb 49 l.output -0.05431
 
-aa 9 bb 50 l.output -0.054310
+aa 9 bb 50 l.output -0.05431
 
 aa 9 bb 51 l.output -0.054305
 
-aa 9 bb 52 l.output -0.054300
+aa 9 bb 52 l.output -0.0543
 
 aa 9 bb 53 l.output -0.054296
 
@@ -1910,7 +1910,7 @@ aa 9 bb 54 l.output -0.054293
 
 aa 9 bb 55 l.output -0.054291
 
-aa 9 bb 56 l.output -0.054290
+aa 9 bb 56 l.output -0.05429
 
 aa 9 bb 57 l.output -0.054288
 
@@ -1956,11 +1956,11 @@ aa 9 bb 77 l.output -0.054307
 
 aa 9 bb 78 l.output -0.054303
 
-aa 9 bb 79 l.output -0.054300
+aa 9 bb 79 l.output -0.0543
 
 aa 9 bb 80 l.output -0.054301
 
-aa 9 bb 81 l.output -0.054300
+aa 9 bb 81 l.output -0.0543
 
 aa 9 bb 82 l.output -0.054301
 
@@ -1968,7 +1968,7 @@ aa 9 bb 83 l.output -0.054299
 
 aa 9 bb 84 l.output -0.054299
 
-aa 9 bb 85 l.output -0.054300
+aa 9 bb 85 l.output -0.0543
 
 aa 9 bb 86 l.output -0.054299
 
@@ -1997,3 +1997,4 @@ aa 9 bb 97 l.output -0.054296
 aa 9 bb 98 l.output -0.054297
 
 aa 9 bb 99 l.output -0.054297
+
