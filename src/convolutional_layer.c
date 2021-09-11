@@ -1646,7 +1646,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     }
 
     printf("\nl.index %d\n", l.index);
-    if (l.index >=59)
+    if (l.index >=39)
     {
         int aa, bb, AA = 10, BB = 100;
         for (aa = 0; aa < AA; aa++)
