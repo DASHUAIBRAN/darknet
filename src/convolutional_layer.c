@@ -1645,21 +1645,21 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
         memcpy(l.output, l.input_layer->output, l.input_layer->outputs * l.input_layer->batch * sizeof(float));
     }
 
-    // printf("\nl.index %d\n", l.index);
-    // if (l.index == 3)
-    // {
-    //     int aa, bb, AA = 10, BB = 100;
-    //     for (aa = 0; aa < AA; aa++)
-    //     {
-    //         /* code */
-    //         for (bb = 0; bb < BB; bb++)
-    //         {
-    //             /* code */
-    //             printf("\naa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
-    //         }
-    //     }
-    //     exit(0);
-    // }
+    printf("\nl.index %d\n", l.index);
+    if (l.index >=44)
+    {
+        int aa, bb, AA = 10, BB = 100;
+        for (aa = 0; aa < AA; aa++)
+        {
+            /* code */
+            for (bb = 0; bb < BB; bb++)
+            {
+                /* code */
+                printf("\naa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
+            }
+        }
+        exit(0);
+    }
 }
 
 void assisted_excitation_forward(convolutional_layer l, network_state state)

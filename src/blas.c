@@ -102,7 +102,7 @@ void shortcut_multilayer_cpu(int size, int src_outputs, int batch, int n, int *o
 
     int id;
 #pragma omp parallel for
-    printf("\nlr size %d nweights %d n %d\n", size,nweights,n);
+    printf("\nlr size %d nweights %d n %d\n", size, nweights, n);
     for (id = 0; id < size; ++id)
     {
 
@@ -152,9 +152,9 @@ void shortcut_multilayer_cpu(int size, int src_outputs, int batch, int n, int *o
         }
         else
         {
-           //到这里
+            //到这里
             out[id] = in[id];
-            printf("\n out[%d] %lf \n",id,out[id]);
+            //printf("\n out[%d] %lf \n",id,out[id]);
         }
 
         // layers
@@ -163,7 +163,7 @@ void shortcut_multilayer_cpu(int size, int src_outputs, int batch, int n, int *o
             int add_outputs = outputs_of_layers[i];
             if (src_i < add_outputs)
             {
-                
+
                 int add_index = add_outputs * src_b + src_i;
                 int out_index = id;
                 // printf("\n add_index %d out_index %d \n",add_index,out_index);
@@ -186,8 +186,11 @@ void shortcut_multilayer_cpu(int size, int src_outputs, int batch, int n, int *o
                 {
                     //到这里
                     out[out_index] += add[add_index];
-                    printf("\n out[%d] %lf add[%d] %lf \n",out_index,out[out_index],add_index,add[add_index]);
-                    if(add_index==100) exit(0);
+                    if (add_index < 100)
+                    {
+                        printf("\n out[%d] %lf add[%d] %lf \n", out_index, out[out_index], add_index, add[add_index]);
+                    }
+                    // if(add_index==100) exit(0);
                 }
             }
         }
