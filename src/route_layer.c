@@ -79,6 +79,7 @@ void resize_route_layer(route_layer *l, network *net)
 
 void forward_route_layer(const route_layer l, network_state state)
 {
+    
     int i, j;
     int offset = 0;
     for(i = 0; i < l.n; ++i){
@@ -86,6 +87,18 @@ void forward_route_layer(const route_layer l, network_state state)
         float *input = state.net.layers[index].output;
         int input_size = l.input_sizes[i];
         int part_input_size = input_size / l.groups;
+        printf("input_size %d l.outputs %d l.batch %d l.n %d index %d",input_size,l.outputs,l.batch,l.n,index);
+        // int aa, bb, AA = 100, BB = 10;
+        // for (aa = 0; aa < AA; aa++)
+        // {
+        //     /* code */
+        //     for (bb = 0; bb < BB; bb++)
+        //     {
+        //         /* code */
+        //         printf("\naa %d bb %d l.output %lf \n", aa, bb, input[aa * BB + bb]);
+        //     }
+        // }
+        // exit(0);
         for(j = 0; j < l.batch; ++j){
             //copy_cpu(input_size, input + j*input_size, 1, l.output + offset + j*l.outputs, 1);
             copy_cpu(part_input_size, input + j*input_size + part_input_size*l.group_id, 1, l.output + offset + j*l.outputs, 1);

@@ -1560,7 +1560,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
                 }
                 else
                 {
-                    printf("\n l.size %d \n", l.size);
+                   
 
                     im2col_cpu_ext(im,                                     // input
                                    l.c / l.groups,                         // input channels
@@ -1592,11 +1592,26 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
             // }
 
             gemm(0, 0, m, n, k, 1, a, k, b, n, 1, c, n);
+            printf("\n l.size %d l.stride %d  l.dilation %d \n", l.size, l.stride, l.dilation);
+            exit(0);
+            if (l.index >= 84)
+            {
+                int aa, bb, AA = 10, BB = 100;
+                for (aa = 0; aa < AA; aa++)
+                {
+                    /* code */
+                    for (bb = 0; bb < BB; bb++)
+                    {
+                        /* code */
+                        printf("\naa %d bb %d l.input %lf \n", aa, bb, c[aa * BB + bb]);
+                    }
+                }
+                exit(0);
+            }
             // bit-count to float
             //if(k==288) exit(0);
             //c += n*m;
             //state.input += l.c*l.h*l.w;
-         
         }
     }
 
@@ -1608,20 +1623,20 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     {
         add_bias(l.output, l.biases, l.batch, l.n, out_h * out_w);
     }
-    if (l.index >= 81)
-    {
-        int aa, bb, AA = 10, BB = 100;
-        for (aa = 0; aa < AA; aa++)
-        {
-            /* code */
-            for (bb = 0; bb < BB; bb++)
-            {
-                /* code */
-                printf("\naa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
-            }
-        }
-        exit(0);
-    }
+    // if (l.index >= 84)
+    // {
+    //     int aa, bb, AA = 10, BB = 100;
+    //     for (aa = 0; aa < AA; aa++)
+    //     {
+    //         /* code */
+    //         for (bb = 0; bb < BB; bb++)
+    //         {
+    //             /* code */
+    //             printf("\naa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
+    //         }
+    //     }
+    //     exit(0);
+    // }
 
     //activate_array(l.output, m*n*l.batch, l.activation);
     if (l.activation == SWISH)
@@ -1662,7 +1677,6 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     }
 
     printf("\nl.index %d\n", l.index);
-    
 }
 
 void assisted_excitation_forward(convolutional_layer l, network_state state)

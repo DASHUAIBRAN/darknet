@@ -125,7 +125,9 @@ void activate_array(float *x, const int n, const ACTIVATION a)
     else if (a == LOGISTIC) {
         #pragma omp parallel for
         for (i = 0; i < n; ++i) {
+            // printf("\n before x[%d] %lf",i, x[i] );
             x[i] = logistic_activate(x[i]);
+            // printf("after x[%d] %lf \n",i, x[i] );
         }
     }
     else {
