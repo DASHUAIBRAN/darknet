@@ -1560,7 +1560,6 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
                 }
                 else
                 {
-                   
 
                     im2col_cpu_ext(im,                                     // input
                                    l.c / l.groups,                         // input channels
@@ -1592,22 +1591,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
             // }
 
             gemm(0, 0, m, n, k, 1, a, k, b, n, 1, c, n);
-            printf("\n l.size %d l.stride %d  l.dilation %d \n", l.size, l.stride, l.dilation);
-            exit(0);
-            if (l.index >= 84)
-            {
-                int aa, bb, AA = 10, BB = 100;
-                for (aa = 0; aa < AA; aa++)
-                {
-                    /* code */
-                    for (bb = 0; bb < BB; bb++)
-                    {
-                        /* code */
-                        printf("\naa %d bb %d l.input %lf \n", aa, bb, c[aa * BB + bb]);
-                    }
-                }
-                exit(0);
-            }
+
             // bit-count to float
             //if(k==288) exit(0);
             //c += n*m;
@@ -1675,7 +1659,21 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
         //simple_copy_ongpu(l.outputs*l.batch, l.output, l.input_antialiasing);
         memcpy(l.output, l.input_layer->output, l.input_layer->outputs * l.input_layer->batch * sizeof(float));
     }
-
+    if (l.index >= 87)
+    {
+        //exit(0);
+        int aa, bb, AA = 10, BB = 100;
+        for (aa = 0; aa < AA; aa++)
+        {
+            /* code */
+            for (bb = 0; bb < BB; bb++)
+            {
+                /* code */
+                printf("\n 1 aa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
+            }
+        }
+        exit(0);
+    }
     printf("\nl.index %d\n", l.index);
 }
 

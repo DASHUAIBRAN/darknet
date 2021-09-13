@@ -2180,6 +2180,11 @@ void gemm_nn(int M, int N, int K, float ALPHA,
             for (j = 0; j < N; ++j)
             {
                 C[i * ldc + j] += A_PART * B[k * ldb + j];
+                // if(K==512&&N==169)
+                // {
+                //     printf("\n C[%d] : %lf \n",i * ldc + j,C[i * ldc + j]);
+                //     if(j==168) exit(0);
+                // }
                 // if (k==0&&B[k * ldb + j]!=0&&j<500&&K==288)
                 // {
                 //     printf("\ni:%d k:%d j:%d ALPHA * A[i * lda + k]*  B[k * ldb + j] = %lf * %lf * %f C[i * ldc + j]:%lf", i, k, j, ALPHA, A[i * lda + k], B[k * ldb + j], C[i * ldc + j]);
@@ -2965,7 +2970,7 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
         int t, ti;
 
 #pragma omp parallel for
-        printf("\nthe M %d TA %d TB %d \n", M,TA,TB);
+        printf("\nthe M %d TA %d TB %d lda %d ldb %d ldc %d\n", M,TA,TB,lda,ldb,ldc);
         for (t = 0; t < M; ++t)
         {
             if (!TA && !TB)

@@ -2660,8 +2660,8 @@ void load_shortcut_weights(layer l, FILE *fp)
     int num = l.nweights;
     int read_bytes;
     read_bytes = fread(l.weights, sizeof(float), num, fp);
-    printf("\nload shortcut_weights\n");
-    exit(0);
+    // printf("\nload shortcut_weights\n");
+    // exit(0);
     if (read_bytes > 0 && read_bytes < num)
         printf("\n Warning: Unexpected end of wights-file! l.weights - l.index = %d \n", l.index);
         //for (int i = 0; i < l.nweights; ++i) printf(" %f, ", l.weights[i]);
