@@ -1399,7 +1399,11 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
     int m = l.n / l.groups;
     int k = l.size * l.size * l.c / l.groups;
     int n = out_h * out_w;
-
+    if(l.index==87)
+    {
+        printf("\n n %d out_h %d out_w %d \n",n,out_h,out_w);
+        exit(0);
+    }
     static int u = 0;
     u++;
     for (i = 0; i < l.batch; ++i)
@@ -1554,6 +1558,7 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
             {
                 // printf(" l.index = %d - FP32 \n", l.index);
                 float *im = state.input + (i * l.groups + j) * (l.c / l.groups) * l.h * l.w;
+
                 if (l.size == 1 && l.stride == 1 && l.dilation == 1)
                 {
                     b = im;
@@ -1591,7 +1596,21 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
             // }
 
             gemm(0, 0, m, n, k, 1, a, k, b, n, 1, c, n);
-
+            if (l.index >= 87)
+            {
+                //exit(0);
+                int aa, bb, AA = 10, BB = 100;
+                for (aa = 0; aa < AA; aa++)
+                {
+                    /* code */
+                    for (bb = 0; bb < BB; bb++)
+                    {
+                        /* code */
+                        printf("\naa %d bb %d l.output %lf \n", aa, bb,c[aa * BB + bb]);
+                    }
+                }
+                exit(0);
+            }
             // bit-count to float
             //if(k==288) exit(0);
             //c += n*m;
@@ -1659,21 +1678,24 @@ void forward_convolutional_layer(convolutional_layer l, network_state state)
         //simple_copy_ongpu(l.outputs*l.batch, l.output, l.input_antialiasing);
         memcpy(l.output, l.input_layer->output, l.input_layer->outputs * l.input_layer->batch * sizeof(float));
     }
-    if (l.index >= 87)
-    {
-        //exit(0);
-        int aa, bb, AA = 10, BB = 100;
-        for (aa = 0; aa < AA; aa++)
-        {
-            /* code */
-            for (bb = 0; bb < BB; bb++)
-            {
-                /* code */
-                printf("\n 1 aa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
-            }
-        }
-        exit(0);
-    }
+    // if (l.index >= 87)
+    // {
+    //     //exit(0);
+    //     int aa, bb, AA = 50, BB = 10000;
+    //     for (aa = 0; aa < AA; aa++)
+    //     {
+    //         /* code */
+    //         for (bb = 0; bb < BB; bb++)
+    //         {
+    //             if (aa % 5 == 0 && bb % 500 == 0)
+    //             {
+    //                 /* code */
+    //                 printf("\naa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
+    //             }
+    //         }
+    //     }
+    //     exit(0);
+    // }
     printf("\nl.index %d\n", l.index);
 }
 

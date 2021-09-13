@@ -111,24 +111,24 @@ void forward_route_layer(const route_layer l, network_state state)
 
         offset += part_input_size;
     }
-    if (l.n == 2)
-    {
-        //exit(0);
-        int aa, bb, AA = 10, BB = 1000;
-        for (aa = 0; aa < AA; aa++)
-        {
-            /* code */
-            for (bb = 0; bb < BB; bb++)
-            {
-                if (BB / 5 == 0 && AA / 5 == 0)
-                {
-                    /* code */
-                    printf("\naa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
-                }
-            }
-        }
-        exit(0);
-    }
+    // if (l.n == 2)
+    // {
+    //     //exit(0);
+    //     int aa, bb, AA = 50, BB = 10000;
+    //     for (aa = 0; aa < AA; aa++)
+    //     {
+    //         /* code */
+    //         for (bb = 0; bb < BB; bb++)
+    //         {
+    //             if (aa % 5 == 0 && bb % 500 == 0)
+    //             {
+    //                 /* code */
+    //                 printf("\naa %d bb %d l.output %lf \n", aa, bb, l.output[aa * BB + bb]);
+    //             }
+    //         }
+    //     }
+    //     exit(0);
+    // }
 }
 
 void backward_route_layer(const route_layer l, network_state state)
