@@ -168,6 +168,7 @@ box get_yolo_box(float *x, float *biases, int n, int index, int i, int j, int lw
         b.y = (j + x[index + 1 * stride]) / lh;
         b.w = x[index + 2 * stride] * x[index + 2 * stride] * 4 * biases[2 * n] / w;
         b.h = x[index + 3 * stride] * x[index + 3 * stride] * 4 * biases[2 * n + 1] / h;
+        printf("\n new_coords b.x %d b.y %d b.w %d b.h %d \n",b.x, b.y,b.w,b.h );
     }
     else
     {
@@ -175,6 +176,7 @@ box get_yolo_box(float *x, float *biases, int n, int index, int i, int j, int lw
         b.y = (j + x[index + 1 * stride]) / lh;
         b.w = exp(x[index + 2 * stride]) * biases[2 * n] / w;
         b.h = exp(x[index + 3 * stride]) * biases[2 * n + 1] / h;
+        printf("\n b.x %lf b.y %lf b.w %lf b.h %lf \n",b.x, b.y,b.w,b.h );
     }
     return b;
 }
@@ -429,6 +431,10 @@ static int entry_index(layer l, int batch, int location, int entry)
 {
     int n = location / (l.w * l.h);
     int loc = location % (l.w * l.h);
+    //loc ---3
+    //4 + l.classes + 1 ---85
+    //n * l.w * l.h * (4 + l.classes + 1) ---3*13*13*85
+    //entry 4   
     return batch * l.outputs + n * l.w * l.h * (4 + l.classes + 1) + entry * l.w * l.h + loc;
 }
 
@@ -1274,6 +1280,7 @@ int get_yolo_detections(layer l, int w, int h, int netw, int neth, float thresh,
     //printf("\n l.batch = %d, l.w = %d, l.h = %d, l.n = %d \n", l.batch, l.w, l.h, l.n);
     int i, j, n;
     float *predictions = l.output;
+    printf("\n l.output[0] %lf  l.output[1] %lf \n ",l.output[0],l.output[1]);
     // This snippet below is not necessary
     // Need to comment it in order to batch processing >= 2 images
     //if (l.batch == 2) avg_flipped_yolo(l);
@@ -1296,7 +1303,9 @@ int get_yolo_detections(layer l, int w, int h, int netw, int neth, float thresh,
         for (n = 0; n < l.n; ++n)
         {
             int obj_index = entry_index(l, 0, n * l.w * l.h + i, 4);
+            //printf("\n here? obj_index %d \n",obj_index);
             float objectness = predictions[obj_index];
+            //printf("\n objectness %lf \n",objectness);
             //if(objectness <= thresh) continue;    // incorrect behavior for Nan values
             if (objectness > thresh)
             {
@@ -1308,12 +1317,15 @@ int get_yolo_detections(layer l, int w, int h, int netw, int neth, float thresh,
 
                 //printf("\n objectness = %f, thresh = %f, i = %d, n = %d \n", objectness, thresh, i, n);
                 int box_index = entry_index(l, 0, n * l.w * l.h + i, 0);
+                printf("\n thresh %lf objectness %lf l.w %d l.h %d box_index %d l.classes %d l.n %d\n"
+                ,thresh,objectness,l.w,l.h,box_index,l.classes,l.n);
                 dets[count].bbox = get_yolo_box(predictions, l.biases, l.mask[n], box_index, col, row, l.w, l.h, netw, neth, l.w * l.h, l.new_coords);
                 dets[count].objectness = objectness;
                 dets[count].classes = l.classes;
                 if (l.embedding_output)
                 {
                     get_embedding(l.embedding_output, l.w, l.h, l.n * l.embedding_size, l.embedding_size, col, row, n, 0, dets[count].embeddings);
+                    printf("\n l.embedding_output \n");
                 }
 
                 for (j = 0; j < l.classes; ++j)

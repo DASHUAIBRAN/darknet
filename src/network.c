@@ -945,6 +945,7 @@ detection *make_network_boxes(network *net, float thresh, int *num)
         if (l_tmp.type == YOLO || l_tmp.type == GAUSSIAN_YOLO || l_tmp.type == DETECTION || l_tmp.type == REGION)
         {
             l = l_tmp;
+            printf("\n select i %d \n",i);
             break;
         }
     }
@@ -1061,22 +1062,26 @@ void fill_network_boxes(network *net, int w, int h, float thresh, float hier, in
                 printf(" Error: Different [yolo] layers have different number of classes = %d and %d - check your cfg-file! \n",
                        prev_classes, l.classes);
             }
+            printf("\n l.type == YOLO count %d layer%d \n",count,j);
         }
         if (l.type == GAUSSIAN_YOLO)
         {
             int count = get_gaussian_yolo_detections(l, w, h, net->w, net->h, thresh, map, relative, dets, letter);
             dets += count;
+            printf("\n l.type == GAUSSIAN_YOLO \n");
         }
         if (l.type == REGION)
         {
             custom_get_region_detections(l, w, h, net->w, net->h, thresh, map, hier, relative, dets, letter);
             //get_region_detections(l, w, h, net->w, net->h, thresh, map, hier, relative, dets);
             dets += l.w * l.h * l.n;
+            printf("\n l.type == REGION \n");
         }
         if (l.type == DETECTION)
         {
             get_detection_detections(l, w, h, thresh, dets);
             dets += l.w * l.h * l.n;
+            printf("\n l.type == DETECTION \n");
         }
     }
 }
