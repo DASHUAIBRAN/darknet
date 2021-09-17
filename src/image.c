@@ -387,7 +387,8 @@ void draw_detections_v3(image im, detection *dets, int num, float thresh, char *
 
     int selected_detections_num;
     detection_with_class *selected_detections = get_actual_detections(dets, num, thresh, &selected_detections_num, names);
-
+    // printf("\nselected_detections_num %d thresh %lf\n",selected_detections_num,thresh);
+    // exit(0);
     // text output
     qsort(selected_detections, selected_detections_num, sizeof(*selected_detections), compare_by_lefts);
     int i;

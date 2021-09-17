@@ -1911,7 +1911,7 @@ void im2col_cpu_custom_bin(float *data_im,
 
 void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
 {
-    printf("\nto here ? activate_array_cpu_custom\n");
+    // printf("\nto here ? activate_array_cpu_custom\n");
 
     int i = 0;
     if (a == LINEAR)
@@ -2595,15 +2595,15 @@ void im2col_cpu_custom_bin(float *data_im,
 
 void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
 {
-    printf("\nto here ? 333activate_array_cpu_custom\n");
+    // printf("\nto here ? 333activate_array_cpu_custom\n");
     int i;
     if (a == LINEAR)
     {
-        printf("\nto here ? LINEAR\n");
+        // printf("\nto here ? LINEAR\n");
     }
     else if (a == LEAKY)
     {
-        printf("\nto here ? 3332121activate_array_cpu_custom\n");
+        // printf("\nto here ? 3332121activate_array_cpu_custom\n");
         for (i = 0; i < n; ++i)
         {
             x[i] = (x[i] > 0) ? x[i] : .1 * x[i];
@@ -2611,7 +2611,7 @@ void activate_array_cpu_custom(float *x, const int n, const ACTIVATION a)
     }
     else
     {
-        printf("\nto else ? LINEAR\n");
+        // printf("\nto else ? LINEAR\n");
 
         for (i = 0; i < n; ++i)
         {
@@ -2944,11 +2944,11 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
               float BETA,
               float *C, int ldc)
 {
-    printf("cpu: TA:%d TB:%d M:%d N:%d K:%d ALPHA:%f lda:%d ldb:%d BETA:%f ldc:%d\n",
-           TA, TB, M, N, K, ALPHA, lda, ldb, BETA, ldc);
+    // printf("cpu: TA:%d TB:%d M:%d N:%d K:%d ALPHA:%f lda:%d ldb:%d BETA:%f ldc:%d\n",
+    //        TA, TB, M, N, K, ALPHA, lda, ldb, BETA, ldc);
     if (BETA != 1)
     {
-        printf("\n BETA \n");
+        // printf("\n BETA \n");
         int i, j;
         for (i = 0; i < M; ++i)
         {
@@ -2962,7 +2962,7 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
     is_avx(); // initialize static variable
     if (is_fma_avx2() && !TA && !TB)
     {
-        printf("\nhere2 \n ");
+        // printf("\nhere2 \n ");
         gemm_nn_fast(M, N, K, ALPHA, A, lda, B, ldb, C, ldc);
     }
     else
@@ -2970,7 +2970,7 @@ void gemm_cpu(int TA, int TB, int M, int N, int K, float ALPHA,
         int t, ti;
 
 #pragma omp parallel for
-        printf("\nthe M %d TA %d TB %d lda %d ldb %d ldc %d\n", M,TA,TB,lda,ldb,ldc);
+        // printf("\nthe M %d TA %d TB %d lda %d ldb %d ldc %d\n", M,TA,TB,lda,ldb,ldc);
         for (t = 0; t < M; ++t)
         {
             if (!TA && !TB)

@@ -72,9 +72,9 @@ void resize_upsample_layer(layer *l, int w, int h)
 void forward_upsample_layer(const layer l, network_state net)
 {
     fill_cpu(l.outputs * l.batch, 0, l.output, 1);
-    printf("\n l.reverse %d \n", l.reverse);
-    printf("\n l.w %d l.h %d l.c %d l.batch %d l.stride %d l.scale %lf \n",
-           l.w, l.h, l.c, l.batch, l.stride, l.scale);
+    // printf("\n l.reverse %d \n", l.reverse);
+    // printf("\n l.w %d l.h %d l.c %d l.batch %d l.stride %d l.scale %lf \n",
+    //        l.w, l.h, l.c, l.batch, l.stride, l.scale);
     if (l.reverse)
     {
 

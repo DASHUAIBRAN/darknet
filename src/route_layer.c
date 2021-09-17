@@ -84,16 +84,16 @@ void resize_route_layer(route_layer *l, network *net)
 void forward_route_layer(const route_layer l, network_state state)
 {
 
-    printf("\nxxxxxxxxxx l.n %d l.index %d xxxxxxxxxx\n", l.n, l.index);
+    // printf("\nxxxxxxxxxx l.n %d l.index %d xxxxxxxxxx\n", l.n, l.index);
     int i, j;
     int offset = 0;
     for (i = 0; i < l.n; ++i)
     {
         int index = l.input_layers[i];
-        if (l.n == 2)
-        {
-            printf("\nthe index i %d \n", index);
-        }
+        // if (l.n == 2)
+        // {
+        //     printf("\nthe index i %d \n", index);
+        // }
         float *input = state.net.layers[index].output;
         int input_size = l.input_sizes[i];
         int part_input_size = input_size / l.groups;

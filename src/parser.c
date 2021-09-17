@@ -2578,7 +2578,7 @@ void load_convolutional_weights(layer l, FILE *fp)
     int num = l.nweights;
     int read_bytes;
     read_bytes = fread(l.biases, sizeof(float), l.n, fp);
-    printf("l.n %d l.nweights %d \n", l.n, l.nweights);
+    //printf("l.n %d l.nweights %d \n", l.n, l.nweights);
     int i;
 
     if (read_bytes > 0 && read_bytes < l.n)
@@ -2735,7 +2735,7 @@ void load_weights_upto(network *net, char *filename, int cutoff)
     {
 
         layer l = net->layers[i];
-        printf("\n %d \n", l.type);
+        // printf("\n %d \n", l.type);
         if (l.dontload)
             continue;
         if (l.type == CONVOLUTIONAL && l.share_layer == NULL)

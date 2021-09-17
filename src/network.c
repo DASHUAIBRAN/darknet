@@ -281,7 +281,7 @@ network make_network(int n)
 
 void forward_network(network net, network_state state)
 {
-    printf("\n net.n %d \n", net.n);
+    // printf("\n net.n %d \n", net.n);
     state.workspace = net.workspace;
     int i;
     for (i = 0; i < net.n; ++i)
@@ -294,7 +294,7 @@ void forward_network(network net, network_state state)
         }
         double time = get_time_point();
         l.forward(l, state);
-        printf("\n %d - Predicted in %lf milli-seconds.\n", i, ((double)get_time_point() - time) / 1000);
+        // printf("\n %d - Predicted in %lf milli-seconds.\n", i, ((double)get_time_point() - time) / 1000);
         state.input = l.output;
 
         // int aa, bb, AA = 1, BB = 10;
@@ -862,6 +862,8 @@ void top_predictions(network net, int k, int *index)
 {
     int size = get_network_output_size(net);
     float *out = get_network_output(net);
+    printf("\n to here? \n");
+    exit(0);
     top_k(out, size, k, index);
 }
 

@@ -1,0 +1,7 @@
+classes= 2
+train  = mydata/train_voc.txt
+valid  = mydata/2007_test.txt
+#difficult = mydata/difficult_2007_test.txt
+names = mydata/classes.txt
+backup = backup/
+

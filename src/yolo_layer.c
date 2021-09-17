@@ -91,12 +91,12 @@ layer make_yolo_layer(int batch, int w, int h, int n, int total, int *mask, int 
 
     fprintf(stderr, "yolo\n");
     srand(time(0));
-
     return l;
 }
 
 void resize_yolo_layer(layer *l, int w, int h)
 {
+
     l->w = w;
     l->h = h;
 
@@ -150,6 +150,12 @@ void resize_yolo_layer(layer *l, int w, int h)
 
 box get_yolo_box(float *x, float *biases, int n, int index, int i, int j, int lw, int lh, int w, int h, int stride, int new_coords)
 {
+    // for (i = 0; i < 16; ++i)
+    // {
+    //     printf("\n get_yolo_box  l.biases[%d] %lf\n", i, biases[i]);
+    // }
+    // exit(0);
+
     box b;
     // ln - natural logarithm (base = e)
     // x` = t.x * lw - i;   // x = ln(x`/(1-x`))   // x - output of previous conv-layer
@@ -444,6 +450,7 @@ void *process_batch(void *ptr)
     {
         train_yolo_args *args = (train_yolo_args *)ptr;
         const layer l = args->l;
+    
         network_state state = args->state;
         int b = args->b;
 
@@ -762,6 +769,11 @@ void *process_batch(void *ptr)
 
 void forward_yolo_layer(const layer l, network_state state)
 {
+    // for (int i = 0; i < 16; i++)
+    // {
+    //     /* code */
+    //     printf("\nyolo biases[%d] %lf\n", i, l.biases[i]);
+    // }
     //int i, j, b, t, n;
     memcpy(l.output, state.input, l.outputs * l.batch * sizeof(float));
     int b, n;
@@ -775,19 +787,26 @@ void forward_yolo_layer(const layer l, network_state state)
             if (l.new_coords)
             {
                 //activate_array(l.output + bbox_index, 4 * l.w*l.h, LOGISTIC);    // x,y,w,h
-                printf("\nl.new_coords here\n");
+                // printf("\nl.new_coords here\n");
             }
             else
             {
-                printf("\n l.new_coords %d l.n %d bbox_index %d l.w %d l.h %d l.classes %d here\n", l.new_coords, l.n, bbox_index, l.w, l.h, l.classes);
+                // printf("\n l.new_coords %d l.n %d bbox_index %d l.w %d l.h %d l.classes %d here\n", l.new_coords, l.n, bbox_index, l.w, l.h, l.classes);
                 activate_array(l.output + bbox_index, 2 * l.w * l.h, LOGISTIC); // x,y,
 
                 int obj_index = entry_index(l, b, n * l.w * l.h, 4);
-                printf("\nobj_index %d \n", obj_index);
+                // printf("\nobj_index %d \n", obj_index);
                 activate_array(l.output + obj_index, (1 + l.classes) * l.w * l.h, LOGISTIC);
             }
             scal_add_cpu(2 * l.w * l.h, l.scale_x_y, -0.5 * (l.scale_x_y - 1), l.output + bbox_index, 1); // scale x,y
         }
+        // for (int i = 0; i < 16; i++)
+        // {
+        //     /* code */
+        //     printf("\nyolo biases[%d] %lf\n", i, l.biases[i]);
+        // }
+        // exit(0);
+
         // int aa, bb, AA = 100, BB = 10;
         // for (aa = 0; aa < AA; aa++)
         // {
@@ -800,7 +819,7 @@ void forward_yolo_layer(const layer l, network_state state)
         // }
         // exit(0);
     }
-    printf("\n l.index %d \n", l.index);
+    // printf("\n l.index %d \n", l.index);
 
 #endif
 
@@ -808,7 +827,7 @@ void forward_yolo_layer(const layer l, network_state state)
     memset(l.delta, 0, l.outputs * l.batch * sizeof(float));
     if (!state.train)
         return;
-    printf("\n yolo here return? xxxxxxxxxxxxxxxxxxxxx\n");
+    //  printf("\n yolo here return? xxxxxxxxxxxxxxxxxxxxx\n");
 
     int i;
     for (i = 0; i < l.batch * l.w * l.h * l.n; ++i)
@@ -1258,6 +1277,17 @@ int get_yolo_detections(layer l, int w, int h, int netw, int neth, float thresh,
     // This snippet below is not necessary
     // Need to comment it in order to batch processing >= 2 images
     //if (l.batch == 2) avg_flipped_yolo(l);
+    // int aa, bb, AA = 10, BB = 100;
+    // for (aa = 0; aa < AA; aa++)
+    // {
+    //     /* code */
+    //     for (bb = 0; bb < BB; bb++)
+    //     {
+    //         /* code */
+    //         printf("\naa %d bb %d l.output %lf \n", aa, bb, predictions[aa * BB + bb]);
+    //     }
+    // }
+    // exit(0);
     int count = 0;
     for (i = 0; i < l.w * l.h; ++i)
     {
@@ -1270,6 +1300,12 @@ int get_yolo_detections(layer l, int w, int h, int netw, int neth, float thresh,
             //if(objectness <= thresh) continue;    // incorrect behavior for Nan values
             if (objectness > thresh)
             {
+                for (int i = 0; i < count; i++)
+                {
+                    /* code */
+                    printf("\n l.biases[%d] %lf\n", i, l.biases[i]);
+                }
+
                 //printf("\n objectness = %f, thresh = %f, i = %d, n = %d \n", objectness, thresh, i, n);
                 int box_index = entry_index(l, 0, n * l.w * l.h + i, 0);
                 dets[count].bbox = get_yolo_box(predictions, l.biases, l.mask[n], box_index, col, row, l.w, l.h, netw, neth, l.w * l.h, l.new_coords);
